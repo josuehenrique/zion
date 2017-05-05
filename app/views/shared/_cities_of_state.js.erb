@@ -1,0 +1,2 @@
+<% name_of_class = params[:klass].downcase %>
+$("#<%= name_of_class %>_address_attributes_city_id").html('<%= escape_javascript(options_for_select(@cities)) %>;');

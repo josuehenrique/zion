@@ -1,0 +1,38 @@
+<%= alert_box(notice, :success) unless notice.blank? %>
+<%= alert_box(alert, :info) unless alert.blank? %>
+
+<div class="row col-xs-12">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="col-xs-12">
+      <br>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon"> <i class="fa fa-user"></i></span>
+        <%= f.text_field :email,
+                         placeholder: t('activerecord.attributes.user.email'),
+                         autofocus: true,
+                         class: 'form-control' %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon"> <i class="fa fa-lock"></i></span>
+        <%= f.password_field :password,
+                             placeholder: t('activerecord.attributes.user.password'),
+                             class: 'form-control' %>
+      </div>
+      <br>
+      <p>
+        <%= f.button I18n.t('confirmations.user.come_in'),
+                     class: 'btn btn-primary btn-sm btn-large form-control' %>
+        <br>
+      </p>
+      <br>
+      <div class="col-xs-12 container-center-items">
+        <%= link_to I18n.t('registrations.user.forgot_your_password'),
+                    new_user_password_path,
+                    data: { confirm: t('confirmations.user.are_you_sure_you_want_to_reset_your_password') }
+        %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<div class="profile-info row">
+  <div class="profile-image col-xs-4">
+    <%= link_to raw(avatar_image(current_user, class: 'img-responsive img-circle')),
+                edit_administration_user_profile_path(current_user) %>
+  </div>
+
+  <div class="profile-details col-xs-8">
+    <h3>
+      <%= link_to current_user.name, edit_administration_user_profile_path(current_user) %>
+    </h3>
+  </div>
+</div>

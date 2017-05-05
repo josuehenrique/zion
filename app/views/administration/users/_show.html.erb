@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <%= link_to 'Permissões',
+              administration_user_permits_path(user_id: @user, module_name: 'administration'),
+              class: 'btn btn-group-crop btn-group-lg btn-primary' unless @user.admin? %>
+</div>
+<br>
+<br>
+<%= box(t('crud.box.general_data'), additional_box_class: 'margin-show-box' ) do %>
+  <%= list_group do %>
+    <% attributes.each do |attribute| %>
+      <%= show_row(attribute) %>
+    <% end %>
+    <%= show_row(:admin) if current_user.admin? %>
+  <% end %>
+<% end %>

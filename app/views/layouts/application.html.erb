@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="É um sistema para gerencia de estabelecimentos comerciais" name="description">
+    <meta content="zion" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <script>
+      var environment = '<%= Rails.env %>';
+    </script>
+    <title>Zion</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="page-topbar ">
+      <div class="logo-area"></div>
+      <div class="quick-area">
+        <div class="pull-left">
+          <ul class="info-menu left-links list-inline list-unstyled">
+            <li class="sidebar-toggle-wrap">
+              <a href="#" data-toggle="sidebar" class="sidebar_toggle">
+                <i class="fa fa-bars"></i>
+              </a>
+            </li>
+            <li class="hidden-sm hidden-xs searchform showopacity">
+            </li>
+          </ul>
+        </div>
+        <div class="pull-right">
+          <ul class="info-menu right-links list-inline list-unstyled">
+            <li class="profile showopacity">
+              <a href="#" data-toggle="dropdown" class="toggle">
+                <%= avatar_image(current_user, class: 'img-circle img-inline', alt: 'user-image') %>
+                <span><%= current_user.name %> <i class="fa fa-angle-down"></i></span>
+              </a>
+              <ul class="dropdown-menu profile animated fadeIn">
+                <li>
+                  <%= link_to raw("<i class='fa fa-user'></i> #{t 'actions.administration.user_profiles.edit'}"),
+                              edit_administration_user_profile_path(current_user) %>
+                </li>
+                <li>
+                  <%= link_to raw("<i class='fa fa-lock'></i> #{t 'actions.administration.user_profiles.logout'}"),
+                              destroy_user_session_path,
+                              id: 'sign-out',
+                              method: :delete %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <ul id="user_menu" class="user-menu pull-right dropdown-menu dropdown-caret dropdown-close">
+      <li>
+        <%= link_to raw("<i class='icon-user'></i> #{t 'profile'}"),
+                    edit_administration_user_profile_path(current_user) %>
+      </li>
+      <li class="divider"></li>
+    </ul>
+
+    <%= render 'layouts/main_menu/main' %>
+
+    <section id="main-content">
+      <section class="wrapper main-wrapper row">
+        <%= yield %>
+      </section>
+    </section>
+    <%= render 'layouts/modal' %>
+  </body>
+</html>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

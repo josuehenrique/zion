@@ -1,0 +1,12 @@
+<% collection(params).each do |object| %>
+  <tr id="<%= dom_id object %>">
+    <% resource_class.list_attributes.each do |attribute| %>
+      <td>
+        <%= formatted_attribute(object, attribute) %>
+      </td>
+    <% end %>
+    <td>
+      <%= icons { render 'list_icons', object: object } %>
+    </td>
+  </tr>
+<% end %>

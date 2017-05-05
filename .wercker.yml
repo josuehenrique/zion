@@ -1,0 +1,61 @@
+# This references the default Ruby container from
+# the Docker Hub.
+# https://registry.hub.docker.com/_/ruby/
+# If you want to use a specific version you would use a tag:
+# ruby:2.2.2
+box: ruby:2.3.3
+# You can also use services such as databases. Read more on our dev center:
+# http://devcenter.wercker.com/docs/services/index.html
+services:
+   - id: postgres
+    # http://devcenter.wercker.com/docs/services/postgresql.html
+
+    # - mongo
+    # http://devcenter.wercker.com/docs/services/mongodb.html
+
+# Read more about pipelines on our dev center
+# http://devcenter.wercker.com/docs/pipelines/index.html
+build:
+    # Steps make up the actions in your pipeline
+    # Read more about steps on our dev center:
+    # http://devcenter.wercker.com/docs/steps/index.html
+    steps:
+        - bundle-install
+        - rails-database-yml
+        - script:
+            name: echo ruby information
+            code: |
+                echo "ruby version $(ruby --version) running"
+                echo "from location $(which ruby)"
+                echo -p "gem list: $(gem list)"
+        - script:
+            name: Install nodejs
+            code: sudo apt-get update && sudo apt-get install nodejs -y
+        - script:
+            name: Install phantomJS
+            code: |
+                cp spec/bin/phantomjs-2.1.1-linux-x86_64.tar.bz2 /usr/local/share/
+                cd /usr/local/share/
+                sudo tar jxvf phantomjs-2.1.1-linux-x86_64.tar.bz2
+                sudo ln -s /usr/local/share/phantomjs-2.1.1-linux-x86_64/ /usr/local/share/phantomjs
+                sudo ln -s /usr/local/share/phantomjs/bin/phantomjs /usr/local/bin/phantomjs
+                echo "phantomJS version $(phantomjs --version)"
+        - script:
+            name: db
+            code: RAILS_ENV=test bundle exec rake db:create && RAILS_ENV=test bundle exec rake db:migrate
+        - script:
+            name: rspec
+            code: sh scripts/build
+deploy:
+  steps:
+    - heroku-deploy:
+        install-toolbelt: true
+        key: $HEROKU_KEY
+        user: $HEROKU_USER
+        app-name: $HEROKU_APP_NAME
+    - script:
+        name: Update database
+        code: heroku run rake db:migrate --app $HEROKU_APP_NAME
+    - script:
+        name: Create permits
+        code: heroku run rake permit:create --app $HEROKU_APP_NAME

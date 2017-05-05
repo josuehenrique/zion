@@ -1,0 +1,5 @@
+<% if can?(:index, controller.to_sym) %>
+  <li id='sub_<%= controller %>'>
+    <%= link_to @name, send(@path) %>
+  </li>
+<% end %>

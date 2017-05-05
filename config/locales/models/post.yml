@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      post:
+        one: 'Cargo'
+        other: 'Cargos'
+
+    attributes:
+      post:
+        name: 'Nome'

@@ -1,0 +1,44 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: 'Usuário'
+        other: 'Usuários'
+        profile_explain: 'Perfil do Usuário'
+
+    attributes:
+      user:
+        active: 'Ativo'
+        admin: 'Administrador'
+        avatar: 'Imagem'
+        cpf: 'CPF'
+        email: 'Email'
+        name: 'Nome'
+        password: 'Senha'
+        password_confirmation: 'Confirmar Senha'
+        secret_phrase: 'Palavra Secreta'
+    errors:
+      models:
+        user:
+          attributes:
+            cpf:
+              invalid_cpf: 'CPF inválido'
+            avatar:
+              invalid_image_format: 'Formato inválido'
+              password_has_been_used_recently: 'Essa senha já foi utilizada recentemente.'
+              to_continue_change_your_password: 'Para continuar altere a sua senha.'
+
+  confirmations:
+    user:
+      are_you_sure_you_want_to_reset_your_password: 'Tem certeza que quer resetar sua senha?'
+      come_in: 'Entrar'
+
+  registrations:
+    user:
+      forgot_your_password: 'Esqueceu sua senha?'
+
+  hints:
+    user:
+      avatar: 'tamanho: até 5 Mb, formato: jpeg, jpg ou png'
+      password:
+        should_be_between_six_and_ten_characteres: 'A senha tem limite de 6 a 10 caracteres.'

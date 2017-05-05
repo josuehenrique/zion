@@ -1,0 +1,9 @@
+if('<%= params[:type] %>' == 'country_id'){
+  <% states = State.by_country(params[:value]).collect { |s| ["#{s.acronym} - #{s.name}", s.id] } %>
+  $("#member_state_id").html('<%= escape_javascript(options_for_select(states)) %>;');
+}
+else
+if('<%= params[:type] %>' == 'state_id'){
+  <% cities = City.by_state(params[:value]).collect { |s| [s.name, s.id] } %>
+  $("#member_naturalness_id").html('<%= escape_javascript(options_for_select(cities)) %>;');
+}

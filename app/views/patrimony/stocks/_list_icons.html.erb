@@ -1,0 +1,3 @@
+<%= show_link(object) %>
+<%= link_edit(object) if can_edit?(object) %>
+<%= situation_change_link(object) unless object.principal? %>

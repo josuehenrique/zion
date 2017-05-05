@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>
+    <%= "#{resource.state.country.name}: " %>
+    <%= "#{resource.state.name}: " << "#{plural}" %>
+    <% if resource_class.respond_to?(:active_filter) %>
+      <small>
+        <% html_options_ative = params[:active].blank? ? 'badge-info' : "" %>
+        <% html_options_inactive = !params[:active].blank? ? 'badge-info' : "" %>
+        <%= link_to (t 'active'), collection_path(country_id: params[:country_id], state_id: params[:state_id]), class: ('badge ' + html_options_ative) %> |
+        <%= link_to (t 'inactive'), collection_path(active: false, country_id: params[:country_id], state_id: params[:state_id]), class: ('badge ' + html_options_inactive) %>
+      </small>
+    <% end %>
+  </h1>
+</div>
+
+<%= render 'list' %>

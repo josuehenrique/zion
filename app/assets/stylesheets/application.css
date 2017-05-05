@@ -1,0 +1,128 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require pace/pace-theme-flash.css
+ *= require bootstrap/css/bootstrap.min.css
+ *= require bootstrap/css/bootstrap-theme.min.css
+ *= require font-awesome.min.css.erb
+ *= require bootstrap/css/bootstrap.min.css.erb
+ *= require animate.min.css
+ *= require perfect-scrollbar/perfect-scrollbar.css
+ *= require style.css
+ *= require responsive.css
+ *= require common.css
+ *= require bootstrap-fileinput/css/fileinput.min.css
+ *= require icheck/skins/flat/blue.css.erb
+ */
+
+.vertical-line1 {
+    background: #b4c9d7;
+    width: 4px; /* Line width */
+    height: 300px;
+    float: left;
+    margin-top: 24px;
+}
+
+.box-login {
+    background-color: #f2f2f2;
+}
+
+abbr[title="Obrigatório"] {
+    color: red;
+    border: 0px !important;
+}
+
+input {
+    height: 33px;
+}
+
+.control-label {
+    padding-top: 6px;
+    padding-right: 14px;
+}
+
+.form-group-inline {
+    display: inline-flex;
+}
+
+.file-input {
+  padding: 0 !important;
+}
+
+.error {
+    margin-left: 10px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.hint {
+    font-size: 12px;
+    padding-left: 4px !important;
+    color: #3f51b5;
+    font-weight: bold;
+}
+
+.glyphicon-table {
+  font-size: 17px !important;
+  padding-top: 2px !important;
+  margin-left: 10px !important;
+}
+
+.red { color: #e91e63}
+.green { color: #3c763d}
+.blue { color: #0000cc}
+.orange { color: #ef7424}
+.padding-0 { padding: 0 !important; }
+
+section > header > .title {
+  text-transform: initial !important;
+  padding-top: 18px!important;
+  font-size: 38px!important;
+  margin-top: 4px !important;
+}
+
+.body-margin-top {
+  border-top: 2.5px !important;
+  border-top-color: #f7f7f7 !important;
+  border-top-style: solid !important;
+}
+
+.margin-show-box {
+  margin: 15px !important;
+}
+
+section > div > div > section > header > .title {
+  font-size: 25px !important;
+}
+
+header.panel_header {
+  padding-top: 16px !important;
+  padding-bottom: 15px !important;
+}
+
+.form-padding {
+  padding-left: 17px !important;
+  padding-right: 17px !important;
+}
+
+.no-margin-top {
+  margin-top: 0px !important;
+}
+
+.modal-content .modal-header {
+  background-color: #3F51E7 !important;
+}
+
+ul > li > a > .fa {
+  font-size: 20px !important;
+}

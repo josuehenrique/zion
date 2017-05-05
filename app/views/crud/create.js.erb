@@ -1,0 +1,11 @@
+<% if resource.persisted? %>
+  var input = $('select[id$=<%= resource.class.to_s.downcase + '_id' %>]');
+
+  input.append('<%= escape_javascript(options_for_select([resource], resource)) %>;');
+  $('#modal-window').modal('hide');
+<% else %>
+  (function () {
+    $('#modal-content').html("<%= escape_javascript render('new') %>");
+    window.modal('show');
+  })();
+<% end %>

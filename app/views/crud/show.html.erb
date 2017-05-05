@@ -1,0 +1,9 @@
+<%= box(explain(singular, I18n.t('crud.explains.show'))) do %>
+      <%= render 'layouts/flash_messages' %>
+      <%= render 'show' %>
+
+  <%= form_buttons do %>
+    <%= link_back %>
+    <%= link_form_edit if can_edit?(resource) %>
+  <% end %>
+<% end %>

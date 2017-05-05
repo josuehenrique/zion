@@ -1,0 +1,7 @@
+<%= box(t('crud.box.general_data'), additional_box_class: 'margin-show-box' ) do %>
+  <%= list_group do %>
+    <% attributes.each do |attribute| %>
+      <%= show_row(attribute) %>
+    <% end %>
+  <% end %>
+<% end %>

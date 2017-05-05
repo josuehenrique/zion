@@ -1,0 +1,7 @@
+<%= info_box t 'address' do %>
+  <%="<b>#{t 'activerecord.models.city.one'}:</b>  #{resource.address.city.name}".html_safe %>
+  <br />
+  <% [:street, :number, :district, :zipcode, :lat, :long, :reference_point].each do |a| %>
+    <%= show_attribute(a, resource.address) %>
+  <% end %>
+<% end %>

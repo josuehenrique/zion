@@ -1,0 +1,36 @@
+<% if resource_class.filter_attributes %>
+  <% filters_collection = filters %>
+  <% filters_size = filters_collection.size %>
+  <% filters_collection.each_with_index do |(filter, options), index| %>
+
+    <span id="<%= filter %>" style="<%= 'display:none;' if hide_options?(filter, options) %>">
+      <% if resource_class.date_attribute?(filter) %>
+        <%= text_field 'search[filter]',
+                       filter,
+                       value: filter_value(filter),
+                       class: 'date-range-picker',
+                       style: 'width: 160px',
+                       placeholder: localized_attribute(resource_class, filter),
+                       data: {
+                         'original-title' => localized_attribute(resource_class, filter),
+                         placement: :top,
+                         rel: :tooltip
+                       } %>
+      <% elsif checkbox?(options) %>
+        <label class="middle">
+          <%= hidden_field_tag "search[filter][#{filter}]", '0' %>
+          <%= check_box_tag "search[filter][#{filter}]", '1', filter_value(filter) == '1' %>
+          <span class="lbl"><%= options[0] %></span>
+        </label>
+      <% else %>
+        <%= select_tag(
+              "search[filter][#{filter}]",
+              options_for_select(options, filter_value(filter)),
+              class: 'form-control input-sm select2-wrapper'
+            ) %>
+      <% end %>
+    </span>
+
+    <%= filter_link(options, filter) %> <%= '|' if ((index + 1) < filters_size) %>
+  <% end %>
+<% end %>

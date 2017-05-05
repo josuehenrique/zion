@@ -1,0 +1,11 @@
+<%= modal_header(t "#{controller_name}.new", resource: singular, cascade: true) %>
+<br/>
+<div class="row">
+  <div class="col-xs-12">
+    <%= render 'form_wrapper' %>
+  </div>
+</div>
+
+<script>
+  enableAutocomplete();
+</script>

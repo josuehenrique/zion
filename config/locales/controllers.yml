@@ -1,0 +1,7 @@
+pt-BR:
+  controllers:
+    users: 'Usuários'
+    user_profiles: 'Perfil do Usuário'
+    posts: 'Cargos'
+    permits: 'Permissões'
+    stocks: 'Estoques'

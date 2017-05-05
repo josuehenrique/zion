@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="É um sistema para gerencia de estabelecimentos comerciais" name="description">
+    <meta content="zion" name="author">
+    <title>Zion</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="page-container row-fluid container-fluid">
+      <section>
+        <div class="col-lg-12">
+          <section class="box ">
+            <div class="content-body">
+              <br>
+              <br>
+              <br>
+              <div class="row">
+                <div class="col-xs-12 container-center-items">
+                  <%= image_tag 'enterprise-icon.png',
+                                width: '200px',
+                                style: 'margin-top: 24px' %>
+                </div>
+                <div class="row col-xs-12">
+                  <div class="col-xs-5">
+                    <div class='row col-xs-12 padding-30'>
+                      <%= yield %>
+                    </div>
+                  </div>
+                  <div class="col-xs-1" style="margin-left: 8%">
+                    <div class="container-center-items "
+                         style="
+                          background: #b4c9d7;
+                          width: 4px;
+                          height: 300px;
+                          margin-top: 24px;">
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="col-xs-5 container-center-items">
+                    <%= image_tag 'impressao_digital.png',
+                                  width: '150px',
+                                  style: 'margin-right: 10%' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
+
+<%= javascript_include_tag 'login', 'data-turbolinks-track': 'reload' %>

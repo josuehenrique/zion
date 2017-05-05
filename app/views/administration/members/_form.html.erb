@@ -1,0 +1,48 @@
+<%= info_box I18n.t 'general_data', 'span2' do %>
+  <%= f.input :name, input_html: { class: 'field-user' } %>
+  <%= f.input :father_name, input_html: { class: 'field-user' } %>
+  <%= f.input :mother_name, input_html: { class: 'field-user' } %>
+  <%= f.input :country_id,
+              collection: Country.all,
+              selected: f.object.new_record? ? nil : f.object.naturalness.state.country_id %>
+  <%= f.input :state_id,
+              collection:  f.object.new_record? ? [] : f.object.naturalness.state.country.states,
+              selected: f.object.new_record? ? nil : f.object.naturalness.state_id %>
+  <%= f.input :naturalness,
+              collection: f.object.new_record? ? [] : f.object.naturalness.state.cities,
+              selected: f.object.new_record? ? nil : f.object.naturalness_id %>
+  <%= f.input :photo %>
+  <%= f.input :job %>
+  <%= f.input :birth_dt,
+              input_html: { class: 'date-picker' } %>
+  <%= f.input :gender %>
+  <%= f.input :educational_level %>
+  <%= f.input :marital_status %>
+<% end %>
+
+<%= info_box I18n.t 'info_box.member_data', 'span2' do %>
+  <%= f.input :post %>
+  <%= f.input :convert_dt, input_html: { class: 'date-picker' } %>
+<% end %>
+
+<%= info_box I18n.t 'activerecord.models.address.one', 'span2' do %>
+  <%= render 'shared/address', f: f %>
+<% end %>
+
+<script type="text/javascript">
+  jQuery(function(){
+    var url = '<%= naturalness_administration_members_path %>';
+
+    $('#member_country_id').change(function(){
+      buscar_dados($(this).val(), 'country_id');
+    });
+
+    $('#member_state_id').change(function(){
+      buscar_dados($(this).val(), 'state_id');
+    });
+
+    function buscar_dados(value, type){
+      $.get(url, {value: value, type: type}, 'script');
+    }
+  });
+</script>

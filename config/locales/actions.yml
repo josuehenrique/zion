@@ -1,0 +1,20 @@
+pt-BR:
+  actions:
+    crud_controller:
+      activate: 'Ativar'
+      create: 'Criar'
+      destroy: 'Deletar'
+      inactivate: 'Inativar'
+      index: 'Listar'
+      new: 'Novo'
+      show: 'Visualizar'
+      edit: 'Editar'
+
+    administration:
+      user_profiles:
+        edit: 'Editar Perfil'
+        logout: 'Sair'
+        unlock: 'Desbloquear'
+        update_unlock_attributes: 'Atualizar Perfil'
+      permits:
+        save_changes: 'Salvar Alterações'

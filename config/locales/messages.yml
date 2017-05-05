@@ -1,0 +1,8 @@
+pt-BR:
+  messages:
+    activated: 'Ativado com sucesso.'
+    are_you_sure: 'Você tem certeza?'
+    cant_be_activated: 'Não foi possível ativar.'
+    cant_be_inactivated: 'Não foi possível inativar.'
+    inactivated: 'Inativado com sucesso.'
+    inactive_resource_should_not_be_modified: "O %{resource_name} %{resource} está inativo e não pode ser alterado"

@@ -1,0 +1,9 @@
+<tr>
+  <% attr_filtered = resource_class.list_attributes - ['id'] %>
+  <th <%= icon_3 %>><%= localized_attribute(resource_class, 'id') %></th>
+
+  <% attr_filtered.each do |attribute| %>
+    <th><%= localized_attribute(resource_class, attribute) %></th>
+  <% end %>
+  <th <%= icon_3 %>></th>
+</tr>

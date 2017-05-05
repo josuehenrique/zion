@@ -1,0 +1,19 @@
+<div class="row row-search">
+  <div class='col-xs-12'>
+    <%= create_link(params[:search]) if create? %>
+    <%= render partial: 'search' %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-small-font table-bordered table-striped">
+    <thead>
+      <%= render 'list_header' %>
+    </thead>
+
+    <tbody>
+      <%= render 'list_body' %>
+    </tbody>
+  </table>
+  <%= paginate %>
+</div>

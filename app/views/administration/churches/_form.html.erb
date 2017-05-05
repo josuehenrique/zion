@@ -1,0 +1,6 @@
+<%= info_box I18n.t 'general_data', 'span2' do %>
+  <%= f.input :name %>
+<% end %>
+<%= info_box I18n.t 'activerecord.models.address.one', 'span2' do %>
+    <%= render 'shared/address', f: f %>
+<% end %>

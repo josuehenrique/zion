@@ -1,0 +1,13 @@
+<%= simple_form_for resource.localized,
+                    url: form_action_link(search: params[:search]),
+                    remote: request.xhr?,
+                    method: resource.persisted? ? :put : :post do |f| %>
+  <%= render 'layouts/flash_messages'  if f.object.errors[:base].blank? %>
+
+  <%= build_body_box(true, class_1_div: 'body-margin-top') do %>
+    <%= render 'form_base_errors', f: f %>
+    <%= render 'form', f: f %>
+  <% end %>
+
+  <%= render 'form_buttons', f: f %>
+<% end %>

@@ -1,0 +1,46 @@
+<div class='address'>
+  <% unless f.object.address.blank? %>
+    <% state_id = f.object.address.city.state_id %>
+    <% cities = f.object.address.city.state.cities %>
+<% else %>
+    <% state_id = cities = [] %>
+  <% end %>
+<% states = State.all.collect { |s| ["#{s.acronym} - #{s.name}", s.id] } %>
+
+  <%= f.simple_fields_for :address_attributes, f.object.address || f.object.build_address do |a| %>
+    <%= a.input :zipcode, input_html: {class: 'mask-zipcode', style: 'width: 5.6% !important'}, style: 'float:left; margin-right:2%',
+                hint: raw("<div style='margin-top:0.5%;'>#{ link_to "Consultar CEP", "http://www.correios.com.br", target: '_blank' }</div>") %>
+    <%= a.input :state, collection: states, selected: state_id,
+                prompt: 'Selecione' %>
+    <%= a.input :city, collection: cities,
+                prompt: 'Digite um CEP ou Selecione um Estado' %>
+    <%= a.input :district %>
+    <%= a.input :street %>
+    <%= a.input :complement %>
+    <%= a.input :number %>
+    <%= a.input :reference_point, as: :text %>
+    <%= a.input :lat, input_html: { class: 'field-coordinate',
+                                    data: { negative: true },
+                                    value: resource.address.lat } %>
+    <%= a.input :long, input_html: { class: 'field-coordinate',
+                                     data: { negative: true },
+                                     value: resource.address.long } %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  if (environment != 'test') {
+    jQuery(function(){
+      $("input[id$='zipcode']").change( function () {
+        var url = '<%= show_address_path %>';
+        $.get(url, {zipcode: $(this).val(), klass: '<%= resource.class %>'}, 'script');
+      });
+    });
+  }
+  jQuery(function() {
+    $("select[id$='state']").change(function () {
+      var url = '<%= cities_of_state_path %>';
+      $.get(url, {state_id: $(this).val(), klass: '<%= resource.class %>'}, 'script');
+    });
+  });
+</script>

@@ -1,0 +1,28 @@
+pt-BR:
+  crud:
+    controllers:
+      titles:
+        index: 'Listar %{resource}'
+        new: 'Cadastrar %{resource}'
+        edit: 'Editar %{resource}'
+    box:
+      general_data: 'Dados gerais'
+    actions:
+      activate: 'Ativar'
+      back: 'Voltar'
+      create: 'Criar'
+      delete: 'Deletar'
+      destroy: 'Destruir'
+      edit: 'Editar'
+      inactivate: 'Inativar'
+      new: 'Novo'
+      update: 'Atualizar'
+      save: 'Salvar'
+      search: 'Pesquisar'
+      show: 'Visualizar'
+    default_states:
+      active: 'Ativo'
+      inactive: 'Inativo'
+      loading: 'Carregando...'
+    explains:
+      show: 'Visualização de Informações'

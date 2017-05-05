@@ -1,0 +1,14 @@
+<%= f.input :avatar, hint: t('hints.user.avatar') %>
+
+<% unless f.object.admin? %>
+  <% if resource.persisted? %>
+    <%= f.input :password, placeholder: '********',
+                hint: t('hints.user.password.should_be_between_six_and_ten_characteres') %>
+    <%= f.input :password_confirmation, placeholder: '********' %>
+  <% else %>
+    <%= f.input :password, hint: t('hints.user.password.should_be_between_six_and_ten_characteres') %>
+    <%= f.input :password_confirmation %>
+  <% end %>
+<% end %>
+
+<%= f.input :secret_phrase %>

@@ -1,0 +1,17 @@
+<% name_of_class = params[:klass].downcase %>
+
+<% if @values.blank? %>
+$("#<%= name_of_class %>_address_attributes_street").val('<%= t 'errors.messages.cep_not_found' %>');
+$("#<%= name_of_class %>_address_attributes_district").val('');
+$("#<%= name_of_class %>_address_attributes_city_id").val('');
+$("#<%= name_of_class %>_address_attributes_complement").val('');
+$("#<%= name_of_class %>_address_attributes_number").val('');
+<% else %>
+  $("#<%= name_of_class %>_address_attributes_city_id").html('<%= escape_javascript(options_for_select(@cities)) %>;');
+
+  $('#<%= name_of_class %>_address_attributes_state').val(<%= @values[:state_id] %>);
+  $('#<%= name_of_class %>_address_attributes_city_id').val(<%= @values[:city_id] %>);
+  $('#<%= name_of_class %>_address_attributes_street').val('<%= @values[:address] %>');
+  $('#<%= name_of_class %>_address_attributes_district').val('<%= @values[:neighborhood] %>');
+<% end %>
+

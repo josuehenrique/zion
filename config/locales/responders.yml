@@ -1,0 +1,54 @@
+pt-BR:
+  flash:
+    male: &male
+      activate:
+        alert: "%{resource_name} não pode ser ativado."
+        notice: "%{resource_name} ativado com sucesso."
+
+      inactivate:
+        alert: "%{resource_name} não pode ser inativado."
+        notice: "%{resource_name} inativado com sucesso."
+
+      create:
+        alert: "%{resource_name} não pode ser cadastrado."
+        notice: "%{resource_name} cadastrado com sucesso."
+
+      update:
+        alert: "%{resource_name} não pode ser editado."
+        notice: "%{resource_name} editado com sucesso."
+
+      destroy:
+        notice: "%{resource_name} deletado com sucesso."
+        alert: "%{resource_name} não pode ser deletado."
+
+      release:
+        notice: "%{resource_name} liberado com sucesso."
+        alert: "%{resource_name} não pode ser liberado."
+
+      disable:
+        notice: "%{resource_name} desabilitado com sucesso."
+        alert: "%{resource_name} não pode ser desabilitado."
+
+    female: &female
+      create:
+        alert: "%{resource_name} não pode ser criada."
+        notice: "%{resource_name} criada com sucesso."
+
+      update:
+        alert: "%{resource_name} não pode ser editada."
+        notice: "%{resource_name} editada com sucesso."
+
+      destroy:
+        alert: "%{resource_name} não pode ser deletada."
+        notice: "%{resource_name} deletada com sucesso."
+
+      release:
+        notice: "%{resource_name} liberada com sucesso."
+        alert: "%{resource_name} não pode ser liberada."
+
+      disable:
+        notice: "%{resource_name} desabilitada com sucesso."
+        alert: "%{resource_name} não pode ser desabilitada."
+
+    actions:
+      <<: *male

@@ -1,0 +1,10 @@
+
+<%= info_box I18n.t 'general_data', 'span2' do %>
+  <%= f.input :name %>
+  <%= f.input :church%>
+  <%= f.input :birth_dt, input_html: { class: 'date-picker' } %>
+<% end %>
+
+<%= info_box I18n.t 'activerecord.models.address.one', 'span2' do %>
+  <%= render 'shared/address', f: f %>
+<% end %>

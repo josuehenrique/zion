@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    models:
+      permit:
+        one: 'Permissão'
+        other: 'Permissões'

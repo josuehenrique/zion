@@ -1,0 +1,12 @@
+# avalilable envs: production, development and test
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: database
+  username: username
+  password: password
+  host: host

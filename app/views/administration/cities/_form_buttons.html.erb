@@ -1,0 +1,6 @@
+<div class="clearfix form-actions col-sm-6">
+  <%= f.button :button, class: 'btn btn-info' %>
+
+  <%= link_to raw("<i class='icon-arrow-left'></i>" + (t 'back')),
+              administration_cities_path(state_id: params[:state_id], country_id: params[:country_id]), class: 'btn btn-sm' %>
+</div>

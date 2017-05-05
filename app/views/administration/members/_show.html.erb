@@ -1,0 +1,18 @@
+<%= info_box(I18n.t '.general_data') do %>
+  <% [:name, :father_name, :mother_name, :naturalness,
+      :birth_dt, :gender, :educational_level, :marital_status, :job_id].each do |attribute| %>
+    <% if resource.respond_to? real_attribute(attribute) %>
+      <%= show_attribute(attribute) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= info_box I18n.t 'info_box.member_data', 'span2' do %>
+  <% [:post, :convert_dt].each do |attribute|  %>
+    <% if resource.respond_to? real_attribute(attribute) %>
+      <%= show_attribute(attribute) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render 'shared/address_show' %>

@@ -1,0 +1,51 @@
+<div style="float: right">
+  <% if resource_class.search_attributes || resource_class.filter_attributes %>
+    <%= form_for url_for(params: params),
+                 method: :get,
+                 remote: request.xhr?,
+                 class: 'form-search' do %>
+
+      <% unless request.xhr? %>
+        <% extract_params.each do |attr, value| %>
+          <% if value.is_a?(Array) %>
+            <% value.each do |v| %>
+              <%= hidden_field_tag "#{attr}[]", v %>
+            <% end %>
+          <% else %>
+            <%= hidden_field_tag attr, value %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= hidden_field_tag :active, params[:active] if params[:active].present? %>
+
+      <div class="row">
+        <div id='search-row' class="col-xs-12 form-inline">
+          <%= render 'filter' %>
+          <% if resource_class.search_attributes %>
+            <%= select_tag(
+                  'search[attr]',
+                  options_for_select(resource_class.search_attributes.
+                    collect { |a| [localized_attribute(resource_class, a), a] },
+                                     (params[:search] ? params[:search][:attr] : nil)
+                  ),
+                  class: 'form-control input-sm select2-wrapper'
+                ) %>
+            <%= text_field :search, :keyword,
+                           value: params[:search] ? params[:search][:keyword] : nil,
+                           autofocus: true,
+                           class: 'form-control input-sm input-medium',
+                           style: 'margin-right: -27px;'%>
+            <i class="fa fa-times" style="cursor: pointer;margin-top: 5px;"></i>
+          <% end %>
+
+          <button class="btn btn-primary" id='search'
+                  data-placement='bottom' data-rel='tooltip'
+                  data-original-title='<%= t 'crud.actions.search' %>' style="margin-left: 18px">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
