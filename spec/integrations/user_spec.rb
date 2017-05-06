@@ -50,11 +50,4 @@ describe User do
     user.save
     expect(user.errors[:email]).to include 'já está em uso'
   end
-
-  it 'should validate uniqueness of cpf' do
-    FactoryGirl.create(:user)
-    user = FactoryGirl.build(:user)
-    user.save
-    expect(user.errors[:cpf]).to include 'já está em uso'
-  end
 end

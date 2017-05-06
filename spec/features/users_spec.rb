@@ -10,7 +10,6 @@ feature 'Users', type: :feature do
     click_link 'Novo'
 
     fill_in 'Nome', with: 'Josué Henrique Ferreira da Silva'
-    fill_in 'CPF', with: '95879337880'
     fill_in 'Email', with: 'teste@teste.com.br'
     attach_file 'Imagem', "#{Rails.root}/spec/fixtures/images/test.jpg"
 
@@ -41,7 +40,6 @@ feature 'Users', type: :feature do
     sign_in make_user_with_permits
     user = FactoryGirl.cache(
       :user,
-      cpf: '31753534011',
       email: 'teste@gmail.com',
       name: 'João',
       active: true,
@@ -193,7 +191,6 @@ feature 'Users', type: :feature do
 
     click_link 'Esqueceu sua senha?'
 
-    fill_in 'CPF', with: current_user.cpf
     fill_in 'Email', with: current_user.email
     fill_in 'Palavra Secreta', with: 'JoSué123'
     click_button 'Resetar a senha'

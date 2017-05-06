@@ -1,5 +1,4 @@
 <%= f.input :name %>
-<%= f.input :cpf, input_html: { class: 'mask-cpf' } unless f.object.admin? %>
 <%= f.input :email %>
 <%= f.input :avatar, hint: t('hints.user.avatar') %>
 
