@@ -12,11 +12,11 @@
       var environment = '<%= Rails.env %>';
     </script>
     <title>Zion</title>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
   </head>
   <body>
     <div class="page-topbar ">
-      <div class="logo-area"></div>
+      <a href="/#"><div class="logo-area"></div></a>
       <div class="quick-area">
         <div class="pull-left">
           <ul class="info-menu left-links list-inline list-unstyled">
@@ -73,4 +73,4 @@
   </body>
 </html>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
