@@ -7,7 +7,7 @@
 </thead>
 
 <tbody>
-  <% collection(params).each do |record| %>
+  <% collection.each do |record| %>
     <tr id="<%= record.id %>" class='search_row'>
       <% attributes.each do |attribute| %>
         <td><%= record[attribute] %></td>

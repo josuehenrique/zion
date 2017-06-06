@@ -1,5 +1,6 @@
 class Country < ActiveRecord::Base
   attr_accessible :name, :acronym
+
   attr_list :name, :acronym
   attr_search :name
 

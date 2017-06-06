@@ -1,0 +1,12 @@
+# avalilable envs: production, development and test
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: zion_dev
+  username: postgres
+  password: postgres
+  host: localhost

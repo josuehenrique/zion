@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include LinkHelper
+
   def real_attribute(attribute, klass = nil)
     if attribute.to_s.end_with?('_id')
       attribute = attribute.to_s.split('_id').first

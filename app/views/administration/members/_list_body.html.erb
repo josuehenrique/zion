@@ -1,4 +1,4 @@
-<% collection(params).each do |object| %>
+<% collection.each do |object| %>
   <tr id="<%= dom_id object %>">
     <% resource_class.list_attributes.each do |attribute| %>
       <td>

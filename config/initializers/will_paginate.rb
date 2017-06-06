@@ -9,7 +9,7 @@ module WillPaginate
       protected
 
       def html_container(html)
-        tag(:div, tag(:ul, html, class: 'pagination'), class: 'dataTables_paginate paging_bootstrap')
+        tag(:div, tag(:ul, html, class: 'pagination'), class: 'dataTables_paginate paging_bootstrap', style: 'float: right')
       end
 
       def page_number(page)
