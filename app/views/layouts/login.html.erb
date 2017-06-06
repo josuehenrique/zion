@@ -8,7 +8,7 @@
     <meta content="zion" name="author">
     <title>Zion</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -27,28 +27,10 @@
                                 width: '200px',
                                 style: 'margin-top: 24px' %>
                 </div>
-                <div class="row col-xs-12">
-                  <div class="col-xs-5">
-                    <div class='row col-xs-12 padding-30'>
-                      <%= yield %>
-                    </div>
-                  </div>
-                  <div class="col-xs-1" style="margin-left: 8%">
-                    <div class="container-center-items "
-                         style="
-                          background: #b4c9d7;
-                          width: 4px;
-                          height: 300px;
-                          margin-top: 24px;">
-                    </div>
-                  </div>
-                  <br>
-                  <br>
-                  <br>
-                  <div class="col-xs-5 container-center-items">
-                    <%= image_tag 'impressao_digital.png',
-                                  width: '150px',
-                                  style: 'margin-right: 10%' %>
+                <div style="width: 30.333333%; float: left; display: list-item"></div>
+                <div class="col-xs-5">
+                  <div class='row col-xs-12 padding-30'>
+                    <%= yield %>
                   </div>
                 </div>
               </div>
@@ -60,4 +42,4 @@
   </body>
 </html>
 
-<%= javascript_include_tag 'login', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'login', 'data-turbolinks-track' => 'reload' %>
