@@ -52,7 +52,7 @@ module ApplicationHelper
 
     content_tag(:section, nil, class: "box #{additional_box_class}") do
       header = body = ''
-      header = build_header_box(title, for_list: true)
+      header = build_header_box(title, {for_list: true}.merge(options))
 
       body =  build_body_box(true) do
         build_body_box(true, class_1_div: 'body-margin-top') { yield }
@@ -67,22 +67,24 @@ module ApplicationHelper
 
     content_tag(:header, nil, class: 'panel_header') do
       h1_content = content_tag(:h1, title, class: 'title pull-left')
-      badage = build_badage_filter if for_list
+      badage = build_badage_filter(options) if for_list
 
       h1_content + badage
     end
   end
 
-  def build_badage_filter
+  def build_badage_filter(options={})
+    url_params = options.delete(:url_params)
+
     if resource_class.respond_to?(:active_filter)
       content_tag(:div,
                   nil,
                   class: 'row pull-right',
                   style: 'margin-top: 25px;margin-right: 30px;') do
         content_tag(:small) do
-          "#{link_to (t 'crud.default_states.active'), collection_path,
+          "#{link_to (t 'crud.default_states.active'), collection_path(url_params),
                      class: ('badge badge-md badge-primary' if params[:active].blank?)} |
-            #{link_to (t 'crud.default_states.inactive'), collection_path(active: false),
+            #{link_to (t 'crud.default_states.inactive'), collection_path({active: false}.merge(url_params)),
                       class: ('badge badge-md badge-primary' unless params[:active].blank?)}".html_safe
         end
       end

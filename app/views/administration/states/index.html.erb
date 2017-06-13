@@ -1,15 +1,7 @@
-<div class="page-header">
-  <h1>
-    <%= "#{resource.country.name}: " << "#{plural}" %>
-    <% if resource_class.respond_to?(:active_filter) %>
-      <small>
-        <% html_options_ative = params[:active].blank? ? 'badge-info' : "" %>
-        <% html_options_inactive = !params[:active].blank? ? 'badge-info' : "" %>
-        <%= link_to (t 'active'), collection_path(country_id: resource.country_id), class: ('badge ' + html_options_ative) %> |
-        <%= link_to (t 'inactive'), collection_path(active: false, country_id: resource.country_id), class: ('badge ' + html_options_inactive) %>
-      </small>
-    <% end %>
-  </h1>
+<div class="col-lg-12">
+  <%= list_box("#{resource.country.name}: " << "#{plural}",
+    class_2_div: 'form-padding', url_params: {country_id: resource.country_id} ) do %>
+    <%= render 'layouts/flash_messages' %>
+    <%= render 'list' %>
+  <% end %>
 </div>
-
-<%= render 'list' %>
