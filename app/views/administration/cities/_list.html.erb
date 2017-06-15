@@ -1,25 +1,24 @@
-<%= list_table do %>
-  <div class='table-option clearfix'>
-    <div class=''>
-      <%= link_to raw("<i class='icon-plus'></i> "+ t('buttons.new', resource: singular, cascade: true)),
-                  new_resource_path(country_id: params[:country_id], state_id: params[:state_id]), class: ' btn btn-large btn-primary' if create? %>
-    </div>
-     <%= render partial: 'search' %>
+<div class="row row-search">
+  <div class='col-xs-12'>
+    <%= create_link(params[:search]) if create? %>
+    <%= render partial: 'search' %>
   </div>
+</div>
 
-  <table class="responsive table">
+<div class="table-responsive">
+  <table class="table table-small-font table-bordered table-striped">
     <thead>
-    <%= render 'list_head' %>
+      <%= render 'list_head' %>
     </thead>
 
     <tbody>
-    <%= render 'list_body' %>
+      <%= render 'list_body' %>
     </tbody>
   </table>
-  <div class="pagination pagination-centered">
-    <%= link_to raw("<i class='icon-arrow-left'></i>" + (I18n.t 'back')),
-                administration_states_path(country_id: params[:country_id], state_id: params[:state_id]),
-                class: 'btn btn-large', style: 'float:left;' %>
-    <%= paginate(params) %>
-  </div>
-<% end %>
+  <%= paginate %>
+  <%= link_back(href: administration_states_path(
+    country_id: params[:country_id],
+    state_id: params[:state_id])
+      ) %>
+</div>
+

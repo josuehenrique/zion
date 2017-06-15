@@ -74,7 +74,7 @@ module ApplicationHelper
   end
 
   def build_badage_filter(options={})
-    url_params = options.delete(:url_params)
+    url_params = options.delete(:url_params) { {} }
 
     if resource_class.respond_to?(:active_filter)
       content_tag(:div,

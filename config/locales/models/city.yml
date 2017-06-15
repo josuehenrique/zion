@@ -1,13 +1,13 @@
 pt-BR:
   activerecord:
     models:
-      state:
-        one: 'Estado'
-        other: 'Estados'
+      city:
+        one: 'Cidade'
+        other: 'Cidades'
         profile_explain: ''
 
     attributes:
-      state:
-        acronym: 'Sigla'
+      city:
+        achronym: 'Sigla'
         active: 'Ativo'
         name: 'Nome'
