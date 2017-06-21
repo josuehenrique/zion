@@ -1,6 +1,6 @@
 <div class="row row-search">
   <div class='col-xs-12'>
-    <%= create_link(params[:search]) if create? %>
+    <%= create_link(params[:search], country_id: params[:country_id]) if create? %>
     <%= render partial: 'search' %>
   </div>
 </div>

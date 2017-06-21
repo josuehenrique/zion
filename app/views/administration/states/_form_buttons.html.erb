@@ -1,19 +1,4 @@
-<% if request.xhr? %>
-  <div class="modal-footer">
-    <%= f.button :button, class: 'btn btn-info' %>
-    <a class="btn null">Cancelar</a>
-  </div>
-
-  <script>
-    $('.modal-footer').on('click', 'a', function (e) {
-      $('#modal-window').modal('hide');
-    });
-  </script>
-<% else %>
-  <div class="clearfix form-actions col-sm-6">
-    <%= f.button :button, class: 'btn btn-info' %>
-
-    <%= link_to raw("<i class='icon-arrow-left'></i>" + (t 'back')),
-                administration_states_path(country_id: params[:country_id]), class: 'btn btn-sm' %>
-  </div>
+<%= form_buttons do %>
+  <%= f.button :back, href: administration_states_path(country_id: params[:country_id]) %>
+  <%= f.button :save %>
 <% end %>
