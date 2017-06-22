@@ -8,6 +8,6 @@ pt-BR:
 
     attributes:
       country:
-        achronym: 'Sigla'
+        acronym: 'Sigla'
         active: 'Ativo'
         name: 'Nome'
