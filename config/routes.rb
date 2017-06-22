@@ -5,14 +5,13 @@ Rails.application.routes.draw do
                sessions: 'devise/sessions'
              },
              skip: [:registrations]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope '/administration', module: 'administration', as: 'administration' do
-    resources :countries do
-      resources :states
+    resources :countries, except: [:delete, :destroy] do
+      resources :states, except: [:delete, :destroy] do
+        resources :cities, except: [:delete, :destroy]
+      end
     end
-
-    resources :cities
 
     resources :users, except: [:delete, :destroy] do
       resources :permits, only: [:index, :new] do

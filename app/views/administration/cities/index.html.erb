@@ -1,7 +1,6 @@
 <div class="col-lg-12">
   <% title = "#{resource.state.country.name}:#{resource.state.name}:#{plural}" %>
-  <%= list_box(title,
-    class_2_div: 'form-padding', url_params: {country_id: params[:country_id], state_id: params[:state_id]} ) do %>
+  <%= list_box(title, class_2_div: 'form-padding') do %>
     <%= render 'layouts/flash_messages' %>
     <%= render 'list' %>
   <% end %>

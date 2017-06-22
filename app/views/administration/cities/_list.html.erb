@@ -1,6 +1,6 @@
 <div class="row row-search">
   <div class='col-xs-12'>
-    <%= create_link(params[:search], state_id: params[:state_id]) if create? %>
+    <%= create_link(params[:search]) if create? %>
     <%= render partial: 'search' %>
   </div>
 </div>
@@ -15,10 +15,8 @@
       <%= render 'list_body' %>
     </tbody>
   </table>
-  <%= paginate %>
-  <%= link_back(href: administration_states_path(
-    country_id: params[:country_id],
-    state_id: params[:state_id])
-      ) %>
-</div>
 
+  <%= paginate %>
+
+  <%= link_back(href: administration_country_states_path) %>
+</div>

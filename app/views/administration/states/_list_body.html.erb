@@ -1,0 +1,12 @@
+<% collection.each do |object| %>
+  <tr id="<%= dom_id object %>">
+    <% resource_class.list_attributes.each do |attribute| %>
+      <td>
+        <%= link_to formatted_attribute(object, attribute),
+          administration_country_state_cities_path(state_id: object.id) %>
+      </td>
+    <% end %>
+
+    <td> <%= render 'list_icons', object: object %> </td>
+  </tr>
+<% end %>
