@@ -39,7 +39,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.default_wrapper          = :horizontal_form_wrapper
+  config.default_wrapper          = :vertical_form_wrapper
   config.boolean_style            = :inline
   config.button_class             = 'btn'
   config.error_notification_tag   = :div
@@ -47,5 +47,5 @@ SimpleForm.setup do |config|
   config.browser_validations = false
   config.input_class = 'form-control'
   config.label_class = 'control-label'
-  config.boolean_label_class = 'checkbox'
+  # config.boolean_label_class = 'icheck-label'
 end

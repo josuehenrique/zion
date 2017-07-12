@@ -5,6 +5,7 @@ module Base
     map_type :integer, to: Inputs::NumericInput
     map_type :date, to: Inputs::DateInput
     map_type :time, to: Inputs::TimeInput
+    map_type :boolean, to: Inputs::BooleanInput
     map_type :radio_buttons, to: Inputs::RadioButtonsInput
 
     def sanitized_object_name
