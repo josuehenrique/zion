@@ -7,6 +7,8 @@ Rails.application.routes.draw do
              skip: [:registrations]
 
   scope '/administration', module: 'administration', as: 'administration' do
+    resources :congregateds, except: [:delete, :destroy]
+
     resources :countries, except: [:delete, :destroy] do
       resources :states, except: [:delete, :destroy] do
         resources :cities, except: [:delete, :destroy]

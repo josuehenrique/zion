@@ -1,5 +1,6 @@
 pt-BR:
   controllers:
+    congregateds: 'Congregados'
     countries: 'Países/Estados/Cidades'
     users: 'Usuários'
     user_profiles: 'Perfil do Usuário'

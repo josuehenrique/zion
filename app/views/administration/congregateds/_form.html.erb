@@ -1,6 +1,4 @@
-<%= info_box I18n.t 'general_data', 'span2' do %>
-  <%= f.input :name, input_html: { class: 'field-user' } %>
-  <%= f.input :birth_dt, input_html: { class: 'date-picker'} %>
-  <%= f.input :entry_dt, input_html: { class: 'date-picker'} %>
-  <%= f.input :baptized %>
-<% end %>
+<%= f.input :name, input_html: { class: 'field-user' } %>
+<%= f.input :birth_dt %>
+<%= f.input :entry_dt %>
+<%= f.input :baptized %>

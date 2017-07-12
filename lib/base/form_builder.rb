@@ -1,6 +1,11 @@
 module Base
   class FormBuilder < SimpleForm::FormBuilder
-    #map_type :file, to: Inputs::FileInput
+    map_type :decimal, :float, to: Inputs::DecimalInput
+    map_type :string, :tel, :password, :email, to: Inputs::StringInput
+    map_type :integer, to: Inputs::NumericInput
+    map_type :date, to: Inputs::DateInput
+    map_type :time, to: Inputs::TimeInput
+    map_type :radio_buttons, to: Inputs::RadioButtonsInput
 
     def sanitized_object_name
       @sanitized_object_name ||= object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")

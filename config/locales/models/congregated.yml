@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      congregated:
+        one: 'Congregado'
+        other: 'Congregados'
+        profile_explain: ''
+
+    attributes:
+      congregated:
+        active: 'Ativo'
+        baptized: 'Batizado?'
+        birth_dt: 'Data de Nascimento'
+        entry_dt: 'Data de Entrada na Igreja'
+        name: 'Nome'
