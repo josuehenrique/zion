@@ -23,6 +23,7 @@
  *= require common.css
  *= require bootstrap-fileinput/css/fileinput.min.css
  *= require icheck/skins/flat/blue.css.erb
+ *= require datepicker/css/datepicker.css
  */
 
 .vertical-line1 {

@@ -25,6 +25,9 @@
 //= require masks
 
 //= require icheck/icheck.min.js
+//= require datepicker/js/datepicker.js
+//= require datepicker/js/bootstrap-datepicker.pt-BR.js
+//= require boot.js
 
 function hide_link(filter) {
   $('#' + filter).show();
@@ -47,7 +50,9 @@ function iCheckboxes_all(sender, targets) {
 
 $(document).ready(function(){
   if(environment == 'production' || environment == 'development') {
-    $('.checkbox').iCheck({checkboxClass: 'icheckbox_flat-blue'});
+    $('input:checkbox').iCheck({checkboxClass: 'icheckbox_flat-blue'});
+
+    setDatePicker();
 
     var confirmBox;
 
