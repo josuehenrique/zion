@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   scope '/administration', module: 'administration', as: 'administration' do
     resources :congregateds, except: [:delete, :destroy]
     resources :churches, except: [:delete, :destroy]
+    resources :jobs, except: [:delete, :destroy]
 
     resources :countries, except: [:delete, :destroy] do
       resources :states, except: [:delete, :destroy] do

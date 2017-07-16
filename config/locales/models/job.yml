@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      job:
+        one: 'Trabalho'
+        other: 'Trabalhos'
+        profile_explain: ''
+
+    attributes:
+      job:
+        active: 'Ativo'
+        name: 'Nome'
