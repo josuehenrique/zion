@@ -1,16 +1,16 @@
-<%= info_box(I18n.t '.general_data') do %>
+<%= box(t('crud.box.general_data'), additional_box_class: 'margin-show-box' ) do %>
   <% [:name, :father_name, :mother_name, :naturalness,
-      :birth_dt, :gender, :educational_level, :marital_status, :job_id].each do |attribute| %>
+    :birth_dt, :gender, :educational_level, :marital_status, :job_id].each do |attribute| %>
     <% if resource.respond_to? real_attribute(attribute) %>
-      <%= show_attribute(attribute) %>
+      <%= show_row(attribute) %>
     <% end %>
   <% end %>
 <% end %>
 
-<%= info_box I18n.t 'info_box.member_data', 'span2' do %>
+<%= box(t('info_box.member.member_data'), additional_box_class: 'margin-show-box' ) do %>
   <% [:post, :convert_dt].each do |attribute|  %>
     <% if resource.respond_to? real_attribute(attribute) %>
-      <%= show_attribute(attribute) %>
+      <%= show_row(attribute) %>
     <% end %>
   <% end %>
 <% end %>

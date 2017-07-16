@@ -1,7 +1,7 @@
 class Member < ActiveRecord::Base
   attr_accessible :name, :father_name, :mother_name, :post_id, :naturalness_id, :job_id,
                   :convert_dt, :birth_dt, :gender, :educational_level, :marital_status, :address_attributes
-  attr_list :id, :name
+  attr_list :name
   attr_search :name
 
   attr_accessor :state_id, :country_id

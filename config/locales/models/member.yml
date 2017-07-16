@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      member:
+        one: 'Membro'
+        other: 'Membros'
+        profile_explain: ''
+
+    attributes:
+      member:
+        active: 'Ativo'
+        birth_dt: 'Dt. de Nascimento'
+        converted_dt: 'Dt. de Conversão'
+        educational_level: 'Escolaridade'
+        father_name: 'Nome do Pai'
+        gender: 'Gênero'
+        job: 'Trabalho'
+        job_id: 'Trabalho'
+        marital_status: 'Estado Civil'
+        mother_name: 'Nome da Mãe'
+        name: 'Nome'
+        naturalness: 'Naturalidade'
+        naturalness_id: 'Naturalidade'
+        post: 'Cargo na Igreja'
+        post_id: 'Cargo na Igreja'
+
+  info_box:
+    member:
+      member_data: 'Dados do Membro'

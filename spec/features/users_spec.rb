@@ -97,7 +97,7 @@ feature 'Users', type: :feature do
 
         navigate 'Administração > Usuários'
 
-        within_row_list(@user.name) { click_link 'Visualizar' }
+        within_row_list(@user.name) { click_link @user.name }
 
         within('.form-buttons') { expect(page).to_not have_link 'Editar' }
       end
@@ -146,7 +146,7 @@ feature 'Users', type: :feature do
   scenario 'administrator user could not see permits link' do
     navigate 'Administração > Usuários'
 
-    click_link 'Visualizar'
+    click_link 'Josué'
     expect(page).to_not have_link 'Permissões'
   end
 

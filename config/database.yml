@@ -10,3 +10,10 @@ development:
   username: postgres
   password: postgres
   host: localhost
+
+test:
+  <<: *default
+  database: zion_test
+  username: postgres
+  password: postgres
+  host: localhost
