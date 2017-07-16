@@ -2,29 +2,30 @@
   <% unless f.object.address.blank? %>
     <% state_id = f.object.address.city.state_id %>
     <% cities = f.object.address.city.state.cities %>
-<% else %>
+  <% else %>
     <% state_id = cities = [] %>
   <% end %>
-<% states = State.all.collect { |s| ["#{s.acronym} - #{s.name}", s.id] } %>
+
+  <% states = State.all.collect { |s| ["#{s.acronym} - #{s.name}", s.id] } %>
 
   <%= f.simple_fields_for :address_attributes, f.object.address || f.object.build_address do |a| %>
     <%= a.input :zipcode, input_html: {class: 'mask-zipcode', style: 'width: 5.6% !important'}, style: 'float:left; margin-right:2%',
-                hint: raw("<div style='margin-top:0.5%;'>#{ link_to "Consultar CEP", "http://www.correios.com.br", target: '_blank' }</div>") %>
+      hint: raw("<div style='margin-top:0.5%;'>#{ link_to "Consultar CEP", "http://www.correios.com.br", target: '_blank' }</div>") %>
     <%= a.input :state, collection: states, selected: state_id,
-                prompt: 'Selecione' %>
+      prompt: 'Selecione' %>
     <%= a.input :city, collection: cities,
-                prompt: 'Digite um CEP ou Selecione um Estado' %>
+      prompt: 'Digite um CEP ou Selecione um Estado' %>
     <%= a.input :district %>
     <%= a.input :street %>
     <%= a.input :complement %>
     <%= a.input :number %>
     <%= a.input :reference_point, as: :text %>
     <%= a.input :lat, input_html: { class: 'field-coordinate',
-                                    data: { negative: true },
-                                    value: resource.address.lat } %>
+      data: { negative: true },
+      value: resource.address.lat } %>
     <%= a.input :long, input_html: { class: 'field-coordinate',
-                                     data: { negative: true },
-                                     value: resource.address.long } %>
+      data: { negative: true },
+      value: resource.address.long } %>
   <% end %>
 </div>
 

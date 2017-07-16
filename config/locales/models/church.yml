@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      church:
+        one: 'Igreja'
+        other: 'Igrejas'
+        profile_explain: ''
+
+    attributes:
+      church:
+        active: 'Ativo'
+        name: 'Nome'
+        address: 'Endereço'
+        address_id: 'Endereço'

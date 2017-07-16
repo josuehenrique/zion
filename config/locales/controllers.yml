@@ -1,5 +1,6 @@
 pt-BR:
   controllers:
+    churches: 'Igrejas'
     congregateds: 'Congregados'
     countries: 'Países/Estados/Cidades'
     users: 'Usuários'
