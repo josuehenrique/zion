@@ -4,7 +4,7 @@ module ActiveRecord
 
     module ClassMethods
       def orderize(*attributes)
-        attributes = [:id] if attributes.empty?
+        attributes = [:name] if attributes.empty?
 
         scope :ordered, -> { order(*attributes) }
       end
