@@ -1,9 +1,13 @@
 <% collection.each do |object| %>
   <tr id="<%= dom_id object %>">
-    <% resource_class.list_attributes.each do |attribute| %>
+    <% resource_class.list_attributes.each_with_index do |attribute, idx| %>
       <td>
         <% attribute = formatted_attribute(object, attribute) %>
-        <%= value_by_field_type(attribute) %>
+        <% if idx == 0 %>
+          <%= link_to value_by_field_type(attribute), resource_path(object, params[:search]) %>
+        <% else %>
+          <%= value_by_field_type(attribute) %>
+        <% end%>
       </td>
     <% end %>
     <td><%= icons { render 'list_icons', object: object } %></td>

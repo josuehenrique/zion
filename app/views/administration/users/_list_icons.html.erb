@@ -1,3 +1,2 @@
-<%= show_link(object) %>
 <%= link_edit(object) if object.can_change_me?(current_user) && object.active %>
 <%= situation_change_link(object) if object.can_change?(current_user) %>
