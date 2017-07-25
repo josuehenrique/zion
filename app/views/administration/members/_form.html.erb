@@ -1,7 +1,7 @@
 <%= box I18n.t 'crud.box.general_data', 'span2' do %>
-  <%= f.input :name, input_html: { class: 'field-user' } %>
-  <%= f.input :father_name, input_html: { class: 'field-user' } %>
-  <%= f.input :mother_name, input_html: { class: 'field-user' } %>
+  <%= f.input :name %>
+  <%= f.input :father_name %>
+  <%= f.input :mother_name %>
   <%= f.input :country_id,
               collection: Country.all,
               selected: f.object.new_record? ? nil : f.object.naturalness.state.country_id %>
@@ -20,7 +20,7 @@
   <%= f.input :marital_status %>
 <% end %>
 
-<%= box I18n.t 'info_box.member_data', 'span2' do %>
+<%= box I18n.t 'info_box.member.member_data', 'span2' do %>
   <%= f.input :post %>
   <%= f.input :convert_dt, input_html: { class: 'date-picker' } %>
 <% end %>
@@ -28,21 +28,3 @@
 <%= box I18n.t 'activerecord.models.address.one', 'span2' do %>
   <%= render 'shared/address', f: f %>
 <% end %>
-
-<script type="text/javascript">
-  jQuery(function(){
-    var url = '<%= naturalness_administration_members_path %>';
-
-    $('#member_country_id').change(function(){
-      buscar_dados($(this).val(), 'country_id');
-    });
-
-    $('#member_state_id').change(function(){
-      buscar_dados($(this).val(), 'state_id');
-    });
-
-    function buscar_dados(value, type){
-      $.get(url, {value: value, type: type}, 'script');
-    }
-  });
-</script>

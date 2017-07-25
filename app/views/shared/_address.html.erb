@@ -34,14 +34,14 @@
     jQuery(function(){
       $("input[id$='zipcode']").change( function () {
         var url = '<%= show_address_path %>';
-        $.get(url, {zipcode: $(this).val(), klass: '<%= resource.class %>'}, 'script');
+        $.get(url, { zipcode: $(this).val(), klass: '<%= resource.class %>' }, 'script');
       });
     });
   }
   jQuery(function() {
     $("select[id$='state']").change(function () {
       var url = '<%= cities_of_state_path %>';
-      $.get(url, {state_id: $(this).val(), klass: '<%= resource.class %>'}, 'script');
+      $.get(url, { state_id: $(this).val(), klass: '<%= resource.class %>' }, 'script');
     });
   });
 </script>

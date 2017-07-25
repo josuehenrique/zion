@@ -43,5 +43,10 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+
+  get :show_address, to: 'addresses_controller#show_address'
+
+  get :cities_of_state, to: 'addresses_controller#cities_of_state'
+
   get '*a', to: 'application#render_error'
 end
