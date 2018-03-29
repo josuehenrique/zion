@@ -12,6 +12,42 @@ module Base
       @sanitized_object_name ||= object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")
     end
 
+
+    def input(attribute_name, options = {}, &block)
+      if reflection = find_association_reflection(attribute_name)
+        if reflection.macro == :belongs_to
+          if options[:label]
+            attribute_name = reflection.options[:foreign_key] || "#{reflection.name}_id"
+          else
+            attribute_name = reflection.options[:foreign_key] || (options[:as] == :auto_complete ? reflection.name : :"#{reflection.name}_id")
+          end
+        end
+
+        if options[:input_html] && options[:input_html][:class]
+          options[:input_html][:class] = "#{options[:input_html][:class]} width-100"
+        else
+          options[:input_html] ||= { class: 'width-100'}
+        end
+
+        klass_name = reflection.class_name
+
+        if options[:shortcut_register]
+          route = "/#{klass_name.underscore.pluralize}/new"
+          options[:input_html].merge!({link_to_new: route})
+        end
+
+        options.reverse_merge!(as: :select, collection: options[:collection] || klass_name.to_s.camelize.constantize.ordered)
+      elsif collection = find_enumeration_reflection(attribute_name)
+        options.reverse_merge!(as: :select, collection: collection)
+      end
+
+      super
+    end
+
+    def find_enumeration_reflection(attribute_name)
+      object.class.enumerations[attribute_name.to_sym] if object.class.respond_to?(:enumerations)
+    end
+
     def back_button(value = nil, options = {})
       value, options = nil, value if value.is_a?(Hash)
 
