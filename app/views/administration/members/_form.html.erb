@@ -2,22 +2,24 @@
   <%= f.input :name %>
   <%= f.input :father_name %>
   <%= f.input :mother_name %>
-  <%= f.input :country_id,
+  <%= f.input :photo %>
+  <%= f.input :job %>
+  <%= f.input :birth_dt, input_html: { class: 'date-picker' } %>
+  <%= f.input :gender %>
+  <%= f.input :educational_level %>
+  <%= f.input :marital_status %>
+<% end %>
+
+<%= box I18n.t 'info_box.member.naturalness', 'span2' do %>
+  <%= f.input :naturalness_country_id,
               collection: Country.all,
               selected: f.object.new_record? ? nil : f.object.naturalness.state.country_id %>
-  <%= f.input :state_id,
-              collection:  f.object.new_record? ? [] : f.object.naturalness.state.country.states,
+  <%= f.input :naturalness_state_id,
+              collection: f.object.new_record? ? [] : f.object.naturalness.state.country.states,
               selected: f.object.new_record? ? nil : f.object.naturalness.state_id %>
   <%= f.input :naturalness,
               collection: f.object.new_record? ? [] : f.object.naturalness.state.cities,
               selected: f.object.new_record? ? nil : f.object.naturalness_id %>
-  <%= f.input :photo %>
-  <%= f.input :job %>
-  <%= f.input :birth_dt,
-              input_html: { class: 'date-picker' } %>
-  <%= f.input :gender %>
-  <%= f.input :educational_level %>
-  <%= f.input :marital_status %>
 <% end %>
 
 <%= box I18n.t 'info_box.member.member_data', 'span2' do %>

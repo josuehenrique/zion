@@ -4,7 +4,7 @@ class Member < ActiveRecord::Base
   attr_list :name
   attr_search :name
 
-  attr_accessor :state_id, :country_id
+  attr_accessor :naturalness_state_id, :naturalness_country_id
 
   has_enumeration_for :gender, with: Gender
   has_enumeration_for :educational_level, with: StudyLevel

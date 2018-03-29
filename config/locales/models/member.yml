@@ -20,10 +20,14 @@ pt-BR:
         mother_name: 'Nome da Mãe'
         name: 'Nome'
         naturalness: 'Naturalidade'
-        naturalness_id: 'Naturalidade'
+        naturalness_id: 'Cidade'
         post: 'Cargo na Igreja'
         post_id: 'Cargo na Igreja'
+        photo: 'Foto'
+        naturalness_country_id: 'País'
+        naturalness_state_id: 'Estado'
 
   info_box:
     member:
       member_data: 'Dados do Membro'
+      naturalness: 'Naturalidade'
