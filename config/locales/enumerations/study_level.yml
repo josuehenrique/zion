@@ -1,0 +1,11 @@
+pt-BR:
+  enumerations:
+    study_level:
+      basic_education: 'Ensino Fundamental'
+      doctorate: 'Doutorado'
+      high_school: 'Ensino Médio'
+      higher_education: 'Ensino Superior'
+      masters_degree: 'Mestrado'
+      phd: 'PHD'
+      specialization: 'Especialista (Pós Graduado/MBA)'
+      technical: 'Técnico'

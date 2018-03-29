@@ -7,7 +7,7 @@ class Member < ActiveRecord::Base
   attr_accessor :state_id, :country_id
 
   has_enumeration_for :gender, with: Gender
-  has_enumeration_for :educational_level, with: LevelOfStudy
+  has_enumeration_for :educational_level, with: StudyLevel
   has_enumeration_for :marital_status, with: MaritalStatus
 
   belongs_to :job
