@@ -19,3 +19,9 @@ pt-BR:
         street: 'Rua'
         state: 'Estado'
         zipcode: 'CEP'
+  form:
+    address:
+      city:
+        prompt: 'Digite um CEP ou Selecione um Estado'
+      state:
+        prompt: 'Selecione'
