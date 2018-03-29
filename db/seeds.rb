@@ -13,3 +13,4 @@ user = User.new(
 )
 
 user.save(validate: false)
+user.update_column(:admin, true)
