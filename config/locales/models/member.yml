@@ -10,7 +10,7 @@ pt-BR:
       member:
         active: 'Ativo'
         birth_dt: 'Dt. de Nascimento'
-        converted_dt: 'Dt. de Conversão'
+        convert_dt: 'Dt. de Conversão'
         educational_level: 'Escolaridade'
         father_name: 'Nome do Pai'
         gender: 'Gênero'
