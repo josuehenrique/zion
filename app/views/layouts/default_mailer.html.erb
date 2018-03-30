@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Tele Gestor</title>
+  <style>
+    a {
+      color: #394c65 !important;
+    }
+
+    a:hover {
+      color: #737373 !important;;
+    }
+
+    a:visited {
+      color: #405165 !important;;
+    }
+
+    .color-email {
+      color: #405165 !important;;
+    }
+  </style>
+</head>
+<body style="width: 100%;
+    background-image: url('http://mkt.redetempo.com.br/telegestor/feeds/bg-tempo.png');
+    background-repeat: no-repeat; background-size:cover; ">
+<div style="margin: 0 auto; width: 900px">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0"
+         style="padding:30px;">
+    <tr>
+      <td align="left">
+        <%= image_tag(attachments['logo.png'].url, width: '129', height: '65', border: '0',
+            style: 'display:block;') if attachments['logo.png'] %>
+        <br/>
+        <br/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style="font-family: Segoe UI, Arial, Helvetica, sans-serif;
+            font-size: 14px; display: block; clear: both; text-align: justify; color: #737373;">
+          <%= yield %>
+        </div>
+      </td>
+    </tr>
+    <br/>
+    <br/>
+    <br/>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="900">
+      <tr>
+        <td>
+          <div style="font-family: Segoe UI, Arial, Helvetica, sans-serif; font-size: 14px; display: block; clear: both; text-align: justify; color: #737373;">
+            <b>Mensagem Confidencial</b>
+            <br/>
+            Conforme disposto na Política de Classificação das Informações do Zion,
+            as informações existentes nesta mensagem foram classificadas como CONFIDENCIAIS e
+            são para conhecimento e uso específico dos seus destinatários,
+            sendo seu sigilo protegido por Lei. Caso não seja destinatário da mesma,
+            saiba que a leitura, cópia e/ou divulgação por sua parte são indevidas e
+            terminantemente proibidas. Caso tenha recebido esta mensagem indevidamente,
+            solicita-se a devolução da mesma para o remetente informando o recebimento indevido.
+            Caso seja destinatário da mesma, lembramos da sua responsabilidade no tratamento das
+            informações confidenciais, desde sua criação, manipulação,
+            divulgação até seu correto descarte previstos na política acima citada.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </table>
+</div>
+</body>
+</html>
