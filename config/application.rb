@@ -38,6 +38,10 @@ module Zion
     config.i18n.default_locale = 'pt-BR'
     I18n.enforce_available_locales = true
 
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :local
+    config.active_record.time_zone_aware_attributes = false
+
     # hide password on log
     config.filter_parameters += [:password]
 
