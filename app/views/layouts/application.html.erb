@@ -39,13 +39,13 @@
               <ul class="dropdown-menu profile animated fadeIn">
                 <li>
                   <%= link_to raw("<i class='fa fa-user'></i> #{t 'actions.administration.user_profiles.edit'}"),
-                              edit_administration_user_profile_path(current_user) %>
+                    edit_administration_user_profile_path(current_user) %>
                 </li>
                 <li>
                   <%= link_to raw("<i class='fa fa-lock'></i> #{t 'actions.administration.user_profiles.logout'}"),
-                              destroy_user_session_path,
-                              id: 'sign-out',
-                              method: :delete %>
+                    destroy_user_session_path,
+                    id: 'sign-out',
+                    method: :delete %>
                 </li>
               </ul>
             </li>
@@ -57,7 +57,7 @@
     <ul id="user_menu" class="user-menu pull-right dropdown-menu dropdown-caret dropdown-close">
       <li>
         <%= link_to raw("<i class='icon-user'></i> #{t 'profile'}"),
-                    edit_administration_user_profile_path(current_user) %>
+          edit_administration_user_profile_path(current_user) %>
       </li>
       <li class="divider"></li>
     </ul>

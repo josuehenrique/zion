@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users,
-             controllers: {
-               passwords: 'devise/passwords',
-               sessions: 'devise/sessions'
-             },
-             skip: [:registrations]
+    controllers: {
+      passwords: 'devise/passwords',
+      sessions: 'devise/sessions'
+    },
+    skip: [:registrations]
 
   scope '/administration', module: 'administration', as: 'administration' do
     resources :congregateds, except: [:delete, :destroy]
