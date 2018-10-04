@@ -42,6 +42,9 @@ group :development, :test do
   gem 'pry'
 end
 
+# correios
+gem 'correios-cep', '0.6.7'
+
 group :development do
   gem 'spring', '1.7.2' # runs app faster in dev by keeping app running in background
   gem 'spring-watcher-listen', '2.0.0'

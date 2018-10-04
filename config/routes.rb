@@ -44,9 +44,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get :show_address, to: 'addresses_controller#show_address'
-
-  get :cities_of_state, to: 'addresses_controller#cities_of_state'
+  get 'addresses/post_offices_address/:zipcode', to: 'addresses#post_offices_address'
 
   get '*a', to: 'application#render_error'
 end

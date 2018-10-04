@@ -11,6 +11,7 @@ class City < ActiveRecord::Base
   filterize
 
   scope :by_state, -> state_id { where(state_id: state_id) }
+  scope :by_name, -> value { where("name ilike '#{value}%'") }
 
   def to_s
     "#{name} - #{state.acronym} - #{state.country.acronym}"

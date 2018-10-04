@@ -10,9 +10,9 @@
 
   <%= f.simple_fields_for :address_attributes, f.object.address || f.object.build_address do |a| %>
     <%= a.input :zipcode,
-        input_html: { class: 'mask-zipcode' },
-        style: 'float:left; margin-right:2%',
-        hint: raw("<div style='margin-top:0.5%;'>#{ link_to "Consultar CEP", "http://www.buscacep.correios.com.br/sistemas/buscacep/BuscaCepEndereco.cfm", target: '_blank' }</div>") %>
+      input_html: { class: 'mask-zipcode' },
+      style: 'float:left; margin-right:2%',
+      hint: raw("<div style='margin-top:0.5%;'>#{ link_to "Consultar CEP", "http://www.buscacep.correios.com.br/sistemas/buscacep/BuscaCepEndereco.cfm", target: '_blank' }</div>") %>
     <%= a.input :state, collection: states, selected: state_id,
       prompt: I18n.t('form.address.state.prompt') %>
     <%= a.input :city, collection: cities, prompt: I18n.t('form.address.city.prompt') %>
@@ -30,19 +30,37 @@
   <% end %>
 </div>
 
-<script type="text/javascript">
-  if (environment != 'test') {
-    jQuery(function(){
-      $("input[id$='zipcode']").change( function () {
-        var url = '<%= show_address_path %>';
-        $.get(url, { zipcode: $(this).val(), klass: '<%= resource.class %>' }, 'script');
-      });
+<script>
+  $(document).ready(function(){
+    $('input[id$=_zipcode]').change(function () {
+      var address = $(this).val().replace('-', '');
+      address = address.replace('.', '');
+
+      var addressBox = $(this).parentsUntil('div.content-body').last();
+
+      if (address.length) {
+        $.get("/addresses/post_offices_address/" + address, function (data) {
+
+          addressBox.find('select[id$=_state] option[value=' + data.state_id + ']')
+            .attr('selected', true).change();
+          addressBox.find('select[id$=_city_id]').data('city_id', data.city_id);
+          addressBox.find('input[id$=_street]').val(data.address);
+          addressBox.find('input[id$=_district]').val(data.neighborhood);
+        });
+      }
     });
-  }
-  jQuery(function() {
-    $("select[id$='state']").change(function () {
-      var url = '<%= cities_of_state_path %>';
-      $.get(url, { state_id: $(this).val(), klass: '<%= resource.class %>' }, 'script');
+
+    $('select[id$=_state]').change(function () {
+      var addressBox = $(this).parentsUntil('div.content-body').last();
+      var cityElId = addressBox.find('select[id$=_city_id]').attr('id');
+
+      $.get("/administration/countries/1/states/"+$(this).val()+"/cities.js",
+        { select_id: cityElId }, null, 'script'
+      ).done(function(){
+        var cityId = addressBox.find('select[id$=_city_id]').data('city_id');
+        var cityEl = addressBox.find('select[id$=_city_id] option[value='+cityId+']');
+        cityEl.attr('selected', true).change();
+      })
     });
   });
 </script>
