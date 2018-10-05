@@ -4,6 +4,10 @@
 <%= f.input :entry_dt %>
 <%= f.input :baptized %>
 
+<%= box I18n.t 'activerecord.models.address.one', 'span2' do %>
+  <%= render 'shared/address', f: f %>
+<% end %>
+
 <%= box I18n.t 'activerecord.models.phone.other', 'span2' do %>
   <%= render 'shared/phones', f: f %>
 <% end %>
