@@ -3,3 +3,7 @@
 <%= f.input :birth_dt %>
 <%= f.input :entry_dt %>
 <%= f.input :baptized %>
+
+<%= box I18n.t 'activerecord.models.phone.other', 'span2' do %>
+  <%= render 'shared/phones', f: f %>
+<% end %>
