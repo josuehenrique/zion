@@ -136,14 +136,13 @@ ActiveRecord::Schema.define(version: 20161110213151) do
   end
 
   create_table "phones", force: :cascade do |t|
-    t.string   "ddi"
-    t.string   "ddd"
-    t.string   "number"
-    t.integer  "related_id",       null: false
-    t.string   "related_type",     null: false
+    t.string   "number",                                       null: false
+    t.integer  "related_id",                                   null: false
+    t.string   "related_type",                                 null: false
     t.integer  "phone_carrier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone_type",       limit: 10, default: "home", null: false
   end
 
   add_index "phones", ["related_type", "related_id"], name: "index_phones_on_related_type_and_related_id", using: :btree

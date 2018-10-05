@@ -1,0 +1,13 @@
+<div class='address'>
+  <%= f.simple_fields_for :phone_attributes, f.object.phone || f.object.build_phone do |phone| %>
+    <div class="form-group-inline">
+      <div class="col-xs-5 col-sm-5 col-lg-5">
+        <%= phone.select :phone_type, PhoneType.to_a, {},  class: 'form-control select col-sm-4' %>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= phone.text_field :number, class: 'form-control mask-phone' %>
+      </div>
+    </div>
+  <% end %>
+</div>

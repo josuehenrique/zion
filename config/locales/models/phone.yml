@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      phone:
+        one: 'N° de Telefone'
+        other: 'N° de Telefones'
+        profile_explain: ''
+
+    attributes:
+      phone:
+        number: 'Número'
+        to_s: 'Número (tipo+telefone)'

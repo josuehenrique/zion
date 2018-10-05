@@ -1,0 +1,5 @@
+<%= box(t('activerecord.attributes.phone.number'), additional_box_class: 'margin-show-box' ) do %>
+  <%= list_group do %>
+    <%= show_row(:to_s, resource: resource.phone) if resource.phone %>
+  <% end %>
+<% end %>
