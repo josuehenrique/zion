@@ -1,7 +1,7 @@
 class Member < ActiveRecord::Base
   attr_accessible :name, :father_name, :mother_name, :post_id, :naturalness_id, :job_id,
     :convert_dt, :birth_dt, :gender, :educational_level, :marital_status,
-    :address_attributes, :email
+    :address_attributes, :email, :phone_attributes
 
   attr_list :name
   attr_search :name
@@ -18,7 +18,10 @@ class Member < ActiveRecord::Base
 
   has_one :address, as: :related, dependent: :destroy
 
+  has_one :phone, as: :related, dependent: :destroy
+
   accepts_nested_attributes_for :address, update_only: true
+  accepts_nested_attributes_for :phone, update_only: true
 
   has_attached_file :photo,
     url: "/anexos/:class/:attachment/:id/:style_:basename.:extension",
