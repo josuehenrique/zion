@@ -8,7 +8,7 @@
   <%= f.input :birth_dt, input_html: { class: 'date-picker' } %>
   <%= f.input :gender %>
   <%= f.input :educational_level %>
-  <%= f.input :marital_status %>
+  <%= f.input :marital_status , include_blank: false  %>
 <% end %>
 
 <%= box I18n.t 'info_box.member.naturalness', 'span2' do %>

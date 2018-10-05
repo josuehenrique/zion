@@ -1,0 +1,7 @@
+pt-BR:
+  enumerations:
+    marital_status:
+      divorced: 'Divorciado(a)'
+      married: 'Casado(a)'
+      unmarried: 'Solteiro(a)'
+      widower: 'Viúvo(a)'
