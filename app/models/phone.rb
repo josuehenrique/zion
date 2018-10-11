@@ -1,5 +1,5 @@
 class Phone < ActiveRecord::Base
-  attr_accessible :number, :phone_type, :related_id, :related_type
+  attr_accessible :number, :phone_type, :related_id, :related_type, :whatsapp
 
   belongs_to :related, polymorphic: true
 

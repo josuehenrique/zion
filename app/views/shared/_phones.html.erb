@@ -8,6 +8,13 @@
       <div class="col-xs-6 col-sm-6 col-lg-6">
         <%= phone.text_field :number, class: 'form-control mask-phone' %>
       </div>
+
+      <div class="form-group col-xs-6 col-sm-6 col-lg-6 form-group-inline">
+        <%= phone.label :whatsapp, class: 'control-label col-xs-6' %>
+        <div class="col-xs-6" style="margin-top: 8px">
+        <%= phone.check_box :whatsapp, class: 'form-control' %>
+      </div>
+      </div>
     </div>
   <% end %>
 </div>

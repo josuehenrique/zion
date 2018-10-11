@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20161110213151) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "phone_type",       limit: 10, default: "home", null: false
+    t.boolean  "whatsapp",                    default: true,   null: false
   end
 
   add_index "phones", ["related_type", "related_id"], name: "index_phones_on_related_type_and_related_id", using: :btree
