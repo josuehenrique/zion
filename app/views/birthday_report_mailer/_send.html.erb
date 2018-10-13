@@ -1,0 +1,55 @@
+<h2>Membros - <%= @members.size %> </h2>
+<% if @members.size %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>Data de Nascimento</th>
+        <th>Idade Atual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= member.name %></td>
+          <td><%= member.email.to_s %></td>
+          <td><%= member.phone.to_s %></td>
+          <td><%= I18n.l(member.birth_dt) %></td>
+          <td><%= Date.current.year - member.birth_dt.year %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<hr>
+
+<h2>Congregados - <%= @congregateds.size %></h2>
+<% if @congregateds.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Data de Nascimento</th>
+        <th>Idade Atual</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @congregateds.each do |congregated| %>
+        <tr>
+          <td><%= congregated.name %></td>
+          <td><%= congregated.email %></td>
+          <td><%= congregated.phone %></td>
+          <td><%=  I18n.l(congregated.birth_dt) %></td>
+          <td><%= Date.current.year - member.birth_dt.year %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<hr>
