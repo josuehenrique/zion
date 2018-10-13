@@ -42,7 +42,7 @@ build:
                 echo "phantomJS version $(phantomjs --version)"
         - script:
             name: db
-            code: RAILS_ENV=test bundle exec rake db:create && RAILS_ENV=test bundle exec rake db:migrate
+            code: RAILS_ENV=test bundle exec rake db:setup
         - script:
             name: rspec
             code: sh scripts/build
