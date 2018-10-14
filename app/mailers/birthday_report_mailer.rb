@@ -5,8 +5,8 @@ class BirthdayReportMailer < ApplicationMailer
     @subject = 'Aniversariantes Da Semana'
     sunday = (DateTime.current.at_beginning_of_week - 1).day
     saturday = (DateTime.current.at_beginning_of_week + 5).day
-    @congregateds = congregateds(sunday, saturday)
-    @members = members(sunday, saturday)
+    @congregateds = collection(Congregated, sunday, saturday)
+    @members = collection(Member, sunday, saturday)
 
     dispatch
   end
@@ -16,22 +16,16 @@ class BirthdayReportMailer < ApplicationMailer
     @bcc = 'josuehenriqueferreira@gmail.com'
     @subject = 'Aniversariantes De Hoje'
     current_day = Date.current.day
-    @congregateds = congregateds(current_day, current_day)
-    @members = members(current_day, current_day)
+    @congregateds = collection(Congregated, current_day, current_day)
+    @members = collection(Member, current_day, current_day)
 
     dispatch
   end
 
   private
 
-  def congregateds(start_day, end_day)
-    Congregated.
-      where("to_char(birth_dt, 'MM') = '#{Date.current.month}' and to_char(birth_dt, 'dd')::integer between #{start_day} and #{end_day}").
-      order(:name)
-  end
-
-  def members(start_day, end_day)
-    Member.
+  def collection(klass, start_day, end_day)
+    klass.
       where("to_char(birth_dt, 'MM') = '#{Date.current.month}' and to_char(birth_dt, 'dd')::integer between #{start_day} and #{end_day}").
       order(:name)
   end
