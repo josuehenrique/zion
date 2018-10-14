@@ -9,7 +9,7 @@ class ApplicationMailer < ActionMailer::Base
     return true if @to.blank?
 
     attachments['logo.png'] = File.read("#{Rails.root}/app/assets/images/iceb.png")
-
+    @subject = 'ZION ICEB - ' + @subject if @subject.present?
     options.merge!({ from: @from }) if @from.present?
     options.merge!({ to: @to, cc: @cc, subject: @subject })
     options.merge!({ bcc: @bcc }) if @bcc.present?
