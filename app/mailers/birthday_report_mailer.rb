@@ -2,7 +2,7 @@ class BirthdayReportMailer < ApplicationMailer
   def send_weekly_report
     @to = ['pastorpaulochaves@gmail.com', 'familiacubala@gmail.com']
     @bcc = 'josuehenriqueferreira@gmail.com'
-    @subject = 'Birthday weekly report'
+    @subject = 'Aniversariantes Da Semana'
     sunday = (DateTime.current.at_beginning_of_week - 1).day
     saturday = (DateTime.current.at_beginning_of_week + 5).day
     @congregateds = congregateds(sunday, saturday)
@@ -14,7 +14,7 @@ class BirthdayReportMailer < ApplicationMailer
   def send_daily_report
     @to = ['pastorpaulochaves@gmail.com', 'familiacubala@gmail.com']
     @bcc = 'josuehenriqueferreira@gmail.com'
-    @subject = 'Birthday daily report'
+    @subject = 'Aniversariantes De Hoje'
     current_day = Date.current.day
     @congregateds = congregateds(current_day, current_day)
     @members = members(current_day, current_day)
