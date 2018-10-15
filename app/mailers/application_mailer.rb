@@ -16,6 +16,6 @@ class ApplicationMailer < ActionMailer::Base
 
     mail(options) do |format|
       format.html { render layout: '/layouts/default_mailer' }
-    end.deliver
+    end
   end
 end
