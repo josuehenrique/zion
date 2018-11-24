@@ -54,7 +54,7 @@ module CrudHelper
   end
 
   def create_link(search = nil, params = {}, options = {})
-    path = options.delete(:path) { new_resource_path({ search: search }.merge(params)) }
+    path = options.delete(:path) { new_resource_path({ search: search.permit! }.merge(params)) }
 
     link_to raw("<i class='fa fa-plus'></i> " + t('crud.actions.new')),path,
             options.merge({class: 'btn btn-primary'})

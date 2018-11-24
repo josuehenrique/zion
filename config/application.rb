@@ -15,7 +15,7 @@ Dotenv.load
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups(:assets => %w(development test production)))
+Bundler.require(:default, Rails.env)
 
 module Zion
   class Application < Rails::Application
@@ -49,8 +49,6 @@ module Zion
     config.action_controller.include_all_helpers = false
 
     config.assets.paths << Rails.root.join('app', 'assets', 'font', 'plugins')
-
-    config.active_record.raise_in_transactional_callbacks = true
 
     # mailer configurations
     config.action_mailer.delivery_method        = :smtp

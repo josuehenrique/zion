@@ -1,4 +1,4 @@
-class InsertAllBrazilianStates < ActiveRecord::Migration
+class InsertAllBrazilianStates < ActiveRecord::Migration[4.2]
   def change
     timestamp = Time.now.to_s(:db)
     execute("

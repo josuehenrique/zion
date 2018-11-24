@@ -1,4 +1,4 @@
-class CreateShepherds < ActiveRecord::Migration
+class CreateShepherds < ActiveRecord::Migration[4.2]
   def change
     create_table :shepherds do |t|
       t.string :name, null: false, limit: 150

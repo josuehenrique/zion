@@ -1,4 +1,4 @@
-class CreateCongregateds < ActiveRecord::Migration
+class CreateCongregateds < ActiveRecord::Migration[4.2]
   def change
     create_table :congregateds do |t|
       t.string :name, null: false, limit: 150

@@ -1,5 +1,5 @@
 <div class='address'>
-  <%= f.simple_fields_for :phone_attributes, f.object.phone || f.object.build_phone do |phone| %>
+  <%= f.simple_fields_for :phone_attributes do |phone| %>
     <div class="form-group-inline">
       <div class="col-xs-5 col-sm-5 col-lg-5">
         <%= phone.select :phone_type, PhoneType.to_a, {},  class: 'form-control select col-sm-4' %>

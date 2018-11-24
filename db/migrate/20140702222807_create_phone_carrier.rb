@@ -1,4 +1,4 @@
-class CreatePhoneCarrier < ActiveRecord::Migration
+class CreatePhoneCarrier < ActiveRecord::Migration[4.2]
   def change
     create_table :phone_carriers do |t|
       t.string :name, limit: 20

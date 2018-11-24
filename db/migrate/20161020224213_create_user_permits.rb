@@ -1,4 +1,4 @@
-class CreateUserPermits < ActiveRecord::Migration
+class CreateUserPermits < ActiveRecord::Migration[4.2]
   def change
     create_table :user_permits do |t|
       t.integer :permit_id, null: false

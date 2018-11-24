@@ -33,11 +33,11 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, on: :create
-  validates :secret_phrase, presence: true, if: 'locked?'
+  validates :secret_phrase, presence: true, if: :locked?
 
-  before_save :verify_password_history, if: 'encrypted_password_changed?'
-  before_save :downcase_and_remove_secret_phrase_accents, if: 'secret_phrase_changed?'
-  after_save :save_changed_password_on_history, if: 'encrypted_password_changed?'
+  before_save :verify_password_history, if: :encrypted_password_changed?
+  before_save :downcase_and_remove_secret_phrase_accents, if: :secret_phrase_changed?
+  after_save :save_changed_password_on_history, if: :encrypted_password_changed?
 
   orderize :name
   filterize

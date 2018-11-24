@@ -84,7 +84,7 @@ feature 'Users', type: :feature do
     context 'for edit action' do
       scenario 'user not have access in edit on list' do
         permit_id = @user.permits.by_action('edit').pluck(:id)
-        UserPermit.destroy_all(permit_id: permit_id)
+        UserPermit.where(permit_id: permit_id).destroy_all
 
         navigate 'Administração > Usuários'
 
@@ -93,7 +93,7 @@ feature 'Users', type: :feature do
 
       scenario 'user not have access in edit on show' do
         permit_id = @user.permits.by_action('edit').pluck(:id)
-        UserPermit.destroy_all(permit_id: permit_id)
+        UserPermit.where(permit_id: permit_id).destroy_all
 
         navigate 'Administração > Usuários'
 
@@ -105,7 +105,7 @@ feature 'Users', type: :feature do
 
     scenario 'user not have access in show on list' do
       permit_id = @user.permits.by_action('show').pluck(:id)
-      UserPermit.destroy_all(permit_id: permit_id)
+      UserPermit.where(permit_id: permit_id).destroy_all
 
       navigate 'Administração > Usuários'
 
@@ -114,7 +114,7 @@ feature 'Users', type: :feature do
 
     scenario 'user not have access in inactivate on list' do
       permit_id = @user.permits.by_action('inactivate').pluck(:id)
-      UserPermit.destroy_all(permit_id: permit_id)
+      UserPermit.where(permit_id: permit_id).destroy_all
 
       navigate 'Administração > Usuários'
 
@@ -123,7 +123,7 @@ feature 'Users', type: :feature do
 
     scenario 'user not have access in new on index' do
       permit_id = @user.permits.by_action('new').pluck(:id)
-      UserPermit.destroy_all(permit_id: permit_id)
+      UserPermit.where(permit_id: permit_id).destroy_all
 
       navigate 'Administração > Usuários'
 
@@ -132,7 +132,7 @@ feature 'Users', type: :feature do
 
     scenario 'user not have access in activate on list' do
       permit_id = @user.permits.by_action('activate').pluck(:id)
-      UserPermit.destroy_all(permit_id: permit_id)
+      UserPermit.where(permit_id: permit_id).destroy_all
       current_user.update_column(:active, false)
 
       navigate 'Administração > Usuários'

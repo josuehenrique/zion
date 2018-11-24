@@ -6,9 +6,6 @@ require 'active_record'
 spec = YAML.load(ERB.new(File.read('config/database.yml')).result)
 ActiveRecord::Base.establish_connection(spec['test'])
 
-# Squeel
-require 'squeel'
-
 require 'protected_attributes'
 
 # ActiveRecord::Attributes
@@ -26,7 +23,7 @@ end
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.maintain_test_schema!
+ActiveRecord::Migration[4.2].maintain_test_schema!
 
 # Paperclip
 require 'paperclip'

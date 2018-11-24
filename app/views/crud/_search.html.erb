@@ -1,6 +1,6 @@
 <div style="float: right">
   <% if resource_class.search_attributes || resource_class.filter_attributes %>
-    <%= form_for url_for(params: params),
+    <%= form_for url_for(params: params.permit!),
                  method: :get,
                  remote: request.xhr?,
                  class: 'form-search' do %>

@@ -1,4 +1,4 @@
-class InsertBrazilianCountryInCountries < ActiveRecord::Migration
+class InsertBrazilianCountryInCountries < ActiveRecord::Migration[4.2]
   def change
     execute("
       INSERT INTO countries  (id, name, acronym, created_at, updated_at) VALUES

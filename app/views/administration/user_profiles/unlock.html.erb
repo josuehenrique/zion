@@ -1,7 +1,7 @@
 <div class="<%= 'row col-xs-12' %>">
   <%= box do %>
     <%= simple_form_for resource.localized,
-                        url: update_unlock_attributes_administration_user_profile_path(params) do |f| %>
+                        url: update_unlock_attributes_administration_user_profile_path(params.permit) do |f| %>
       <%= render 'layouts/flash_messages'  if f.object.errors[:base].blank? %>
 
       <%= box do %>

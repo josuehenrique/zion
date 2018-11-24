@@ -20,8 +20,8 @@ class Member < ActiveRecord::Base
 
   has_one :phone, as: :related, dependent: :destroy
 
-  accepts_nested_attributes_for :address, update_only: true
-  accepts_nested_attributes_for :phone, update_only: true
+  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :phone
 
   has_attached_file :photo,
     url: "/anexos/:class/:attachment/:id/:style_:basename.:extension",

@@ -15,13 +15,13 @@ describe User, type: :model do
   it { should validate_presence_of(:password).on(:create) }
 
   it { should callback(:verify_password_history).
-    before(:save).if('encrypted_password_changed?') }
+    before(:save).if(:encrypted_password_changed?) }
 
   it { should callback(:downcase_and_remove_secret_phrase_accents).
-    before(:save).if('secret_phrase_changed?') }
+    before(:save).if(:secret_phrase_changed?) }
 
   it { should callback(:save_changed_password_on_history).
-    after(:save).if('encrypted_password_changed?') }
+    after(:save).if(:encrypted_password_changed?) }
 
   it { should validate_attachment_size(:avatar).in(1..5.megabytes) }
 

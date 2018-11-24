@@ -1,4 +1,4 @@
-class AddTriggerUserPasswords < ActiveRecord::Migration
+class AddTriggerUserPasswords < ActiveRecord::Migration[4.2]
   def up
     execute <<-SQL
       CREATE OR REPLACE FUNCTION only_last_four_password_histories() RETURNS TRIGGER AS $BODY$

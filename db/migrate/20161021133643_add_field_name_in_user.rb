@@ -1,4 +1,4 @@
-class AddFieldNameInUser < ActiveRecord::Migration
+class AddFieldNameInUser < ActiveRecord::Migration[4.2]
   def change
     add_column :users, :name, :string, limit: 150
 
