@@ -11,7 +11,7 @@ set -e
 set -x
 
 # execute specs
-bundle exec rspec spec/lib
+bundle exec rspec spec/initializers
 bundle exec rspec spec/models
 bundle exec rspec spec/integrations
 bundle exec rspec spec/features

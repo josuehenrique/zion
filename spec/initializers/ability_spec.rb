@@ -2,8 +2,8 @@ require 'unit_helper'
 require 'cancan/ability'
 require 'cancan/rule'
 require 'cancan/matchers'
-require 'lib/ability'
 require 'active_support/core_ext/object/blank'
+require 'config/initializers/ability'
 
 describe Ability do
   let :role do
