@@ -63,12 +63,21 @@ ActiveRecord::Schema.define(version: 20161110213151) do
     t.boolean  "active",                 default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "countries", force: :cascade do |t|
     t.string   "name",       limit: 60
     t.string   "acronym",    limit: 2
     t.boolean  "active",                default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "emails", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "owner_id"
+    t.string   "owner_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -99,6 +108,7 @@ ActiveRecord::Schema.define(version: 20161110213151) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "email"
   end
 
   add_index "members", ["job_id"], name: "index_members_on_job_id", using: :btree

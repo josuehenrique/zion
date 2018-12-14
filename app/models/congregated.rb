@@ -1,7 +1,7 @@
 class Congregated < ActiveRecord::Base
-  attr_accessible :name, :birth_dt, :entry_dt, :baptized
+  attr_accessible :name, :email, :birth_dt, :entry_dt, :baptized
 
-  attr_list :name
+  attr_list :name, :entry_dt, :baptized
 
   attr_search :name
 
