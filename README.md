@@ -17,4 +17,9 @@ So, with the community power this system will be the most church system ever.
 #### How to contribute
 **open an issue** -> **commit** -> **git push** -> **CI passed** -> **require code review** -> **if all ok merge**
 
+#### CI/CD
+Today we use Wercker for while. 
+https://app.wercker.com/josuehenrique/zion/runs
+
+
 **Obs.:** MERGES ON MASTER STARTS **AUTOMATICALLY** PRODUCTION DEPLOY
