@@ -21,5 +21,7 @@ So, with the community power this system will be the most church system ever.
 Today we use Wercker for while. 
 https://app.wercker.com/josuehenrique/zion/runs
 
+#### Link to "production" APP
+http://zion-production.herokuapp.com/users/sign_in
 
 **Obs.:** MERGES ON MASTER STARTS **AUTOMATICALLY** PRODUCTION DEPLOY
