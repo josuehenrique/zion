@@ -13,6 +13,7 @@ So, with the community power this system will be the most church system ever.
 * NodeJS
 * PostgreSql >= 9.0
 * Rails 5.1.6
+* pg_dump 9.6.9
 
 #### How to contribute
 **open an issue** -> **commit** -> **git push** -> **CI passed** -> **require code review** -> **if all ok merge**

@@ -45,6 +45,8 @@ module Zion
     # hide password on log
     config.filter_parameters += [:password]
 
+    config.active_record.schema_format = :sql
+
     # Include helpers from current controller only
     config.action_controller.include_all_helpers = false
 
