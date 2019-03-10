@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: churches
+#
+#  id         :integer          not null, primary key
+#  name       :string(150)      not null
+#  address_id :integer
+#  active     :boolean          default(TRUE)
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_churches_on_address_id  (address_id)
+#
+
 class Church < ActiveRecord::Base
   attr_accessible :name, :address_attributes
   attr_list :name
