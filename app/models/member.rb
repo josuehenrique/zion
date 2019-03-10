@@ -1,3 +1,41 @@
+# == Schema Information
+#
+# Table name: members
+#
+#  id                 :integer          not null, primary key
+#  name               :string(150)      not null
+#  father_name        :string(150)      not null
+#  mother_name        :string(150)      not null
+#  post_id            :integer
+#  naturalness_id     :integer
+#  job_id             :integer
+#  convert_dt         :date             not null
+#  birth_dt           :date             not null
+#  gender             :string(1)        not null
+#  educational_level  :string(2)        not null
+#  marital_status     :string(2)        not null
+#  active             :boolean          default(TRUE)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  photo_file_name    :string
+#  photo_content_type :string
+#  photo_file_size    :bigint(8)
+#  photo_updated_at   :datetime
+#  email              :string
+#
+# Indexes
+#
+#  index_members_on_job_id          (job_id)
+#  index_members_on_naturalness_id  (naturalness_id)
+#  index_members_on_post_id         (post_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (job_id => jobs.id)
+#  fk_rails_...  (naturalness_id => cities.id)
+#  fk_rails_...  (post_id => posts.id)
+#
+
 class Member < ActiveRecord::Base
   attr_accessible :name, :father_name, :mother_name, :post_id, :naturalness_id, :job_id,
     :convert_dt, :birth_dt, :gender, :educational_level, :marital_status,

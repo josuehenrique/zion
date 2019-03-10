@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: permits
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  modulus    :string           not null
+#  controller :string           not null
+#  action     :string           not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_permits_on_action      (action)
+#  index_permits_on_controller  (controller)
+#  index_permits_on_modulus     (modulus)
+#  index_permits_on_name        (name)
+#
+
 class Permit < ActiveRecord::Base
   attr_accessible :action, :name, :controller
 

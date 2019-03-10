@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: shepherds
+#
+#  id         :integer          not null, primary key
+#  name       :string(150)      not null
+#  church_id  :integer
+#  birth_dt   :date             not null
+#  active     :boolean          default(TRUE)
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_shepherds_on_church_id  (church_id)
+#
+
 class Shepherd < ActiveRecord::Base
   attr_accessible :name, :address_attributes, :church_id, :birth_dt
   attr_list :name
