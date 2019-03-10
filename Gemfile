@@ -39,6 +39,7 @@ gem "devise", "4.5.0"
 gem "cancan", git: "https://github.com/ryanb/cancan.git", branch: "2.0"
 
 group :development, :test do
+  gem 'annotate' , '~> 2.7.3'
   gem "pry", "0.11.3"
 end
 
