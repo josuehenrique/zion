@@ -25,4 +25,6 @@ https://app.wercker.com/josuehenrique/zion/runs
 #### Link to "production" APP
 http://zion-production.herokuapp.com/users/sign_in
 
-**Obs.:** MERGES ON MASTER STARTS **AUTOMATICALLY** PRODUCTION DEPLOY
+**Obs.:** 
+1. MERGES ON MASTER STARTS **AUTOMATICALLY** PRODUCTION DEPLOY
+2. IF YOU CHANGE DATABASE **COMMIT** THE SCHEMA AND THE ANNOTATE
