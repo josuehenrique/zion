@@ -23,7 +23,7 @@ module Inputs
       end
     end
 
-    def build_check_box(unchecked_value = unchecked_value)
+    def build_check_box(unchecked_value = true)
       input_html_options[:style] = 'width: 34px'
       @builder.check_box(attribute_name, input_html_options, checked_value, unchecked_value)
     end
