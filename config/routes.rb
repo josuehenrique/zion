@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
   scope '/patrimony', module: 'patrimony', as: 'patrimony' do
     resources :stocks, except: :destroy
+    resources :inventories, except: :destroy
   end
 
   root to: 'home#index'

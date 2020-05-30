@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      inventory:
+        one: 'Inventário'
+        other: 'Inventários'
+        profile_explain: ''
+
+    attributes:
+      inventory:
+        description: 'Descrição'
+        name: 'Nome'
+        observations: 'Observações'
