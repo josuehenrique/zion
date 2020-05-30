@@ -1,0 +1,45 @@
+version: "2"
+
+services:
+  zion_postgres:
+    image: postgres:11.5-alpine
+    container_name: zion_postgres
+    volumes:
+      - ./docker/db:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    mem_limit: 512mb
+    networks:
+      zion:
+        ipv4_address: 172.29.5.1
+
+  zion_app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: zion
+    container_name: zion
+    command: /bin/bash
+    tty: true
+    volumes:
+      - .:/zion
+    ports:
+      - "3000:3000"
+    depends_on:
+      - zion_postgres
+    mem_limit: 512mb
+    networks:
+      zion:
+        ipv4_address: 172.29.5.2
+ 
+volumes:
+  postgres:
+
+networks:
+  zion:
+    driver: bridge
+    ipam:
+      config:
+        -
+          subnet: 172.29.0.0/16
+          gateway: 172.29.5.254
