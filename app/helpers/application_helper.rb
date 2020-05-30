@@ -1,5 +1,6 @@
 module ApplicationHelper
   include LinkHelper
+  require "base/form_builder.rb"
 
   def real_attribute(attribute, klass = nil)
     if attribute.to_s.end_with?('_id')
