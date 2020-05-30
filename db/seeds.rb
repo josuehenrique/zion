@@ -60,11 +60,11 @@ user.save(validate: false)
 user.update_column(:admin, true)
 
 post = Post.create(name: 'Membro', classification: PostsType::ADMINISTRATION)
-country = Country.create('Brasil', 'BR'
-state = City.create(nfirst
-city = City.create(nfirst
-job  = Job.create(name: 'Marceneiro')
+country = Country.create('Brasil', 'BR')
+# state = City.create(nfirst)
+# city = City.create(nfirst)
+# job  = Job.create(name: 'Marceneiro')
 
-20.times.each do |i|
-  create_members("random#{i}@zion.com.br", post.id, city.id, job.id, city.id)
-end
+# 20.times.each do |i|
+#   create_members("random#{i}@zion.com.br", post.id, city.id, job.id, city.id)
+# end
