@@ -1,5 +1,5 @@
 <%= box(t('crud.box.general_data'), additional_box_class: 'margin-show-box' ) do %>
-  <% [:name, :description, :observations].each do |attribute| %>
+  <% [:id, :name, :description, :observations].each do |attribute| %>
     <% if resource.respond_to? real_attribute(attribute) %>
       <%= show_row(attribute) %>
     <% end %>
