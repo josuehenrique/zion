@@ -9,11 +9,11 @@ development:
   database: zion_dev
   username: postgres
   password: postgres
-  host: localhost
+  host: <%= ENV['ZION_DATABASE_HOST_DEV']%>
 
 test:
   <<: *default
   database: zion_test
   username: postgres
   password: postgres
-  host: localhost
+  host: <%= ENV['ZION_DATABASE_HOST_TEST']%>
