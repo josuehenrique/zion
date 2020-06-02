@@ -1,5 +1,5 @@
 class Inventory < ActiveRecord::Base
-  attr_accessible :name, :description, :observation
+  attr_accessible :name, :description, :observations
 
   attr_list :id, :name
   attr_search :name
