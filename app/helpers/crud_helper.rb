@@ -258,11 +258,11 @@ module CrudHelper
   end
 
   def show_row(attribute, options = {})
-    current_recource =  options.delete(:resource) || resource
-    value = formatted_attribute(current_recource, attribute, options)
+    current_resource =  options.delete(:resource) || resource
+    value = formatted_attribute(current_resource, attribute, options)
     value = value_by_field_type(value).to_s
 
-    show_attr(localized_attribute(current_recource.class, attribute), value, options)
+    show_attr(localized_attribute(current_resource.class, attribute), value, options)
   end
 
   def show_attr(name, value, options = {})
