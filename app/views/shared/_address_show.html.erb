@@ -1,7 +1,9 @@
-<%= box(t('activerecord.attributes.church.address'), additional_box_class: 'margin-show-box' ) do %>
-  <%= list_group do %>
-    <% [:street, :number, :district, :city_id, :zipcode, :lat, :long, :reference_point].each do |attr| %>
-      <%= show_row(attr, resource: resource.address) %>
+<% if resource.address %>
+  <%= box(t('activerecord.attributes.church.address'), additional_box_class: 'margin-show-box' ) do %>
+    <%= list_group do %>
+      <% [:street, :number, :district, :city_id, :zipcode, :lat, :long, :reference_point].each do |attr| %>
+        <%= show_row(attr, resource: resource.address) %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
