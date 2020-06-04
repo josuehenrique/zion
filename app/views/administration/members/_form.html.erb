@@ -13,14 +13,16 @@
 
 <%= box I18n.t 'info_box.member.naturalness', 'span2' do %>
   <%= f.input :naturalness_country_id,
-              collection: Country.all,
-              selected: f.object.new_record? ? nil : f.object.naturalness.state.country_id %>
+    collection: Country.all,
+    selected: naturalness_country_id(f.object) %>
+
   <%= f.input :naturalness_state_id,
-              collection: f.object.new_record? ? [] : f.object.naturalness.state.country.states,
-              selected: f.object.new_record? ? nil : f.object.naturalness.state_id %>
+    collection: naturalness_states(f.object),
+    selected: naturalness_state_id(f.object) %>
+    
   <%= f.input :naturalness,
-              collection: f.object.new_record? ? [] : f.object.naturalness.state.cities,
-              selected: f.object.new_record? ? nil : f.object.naturalness_id %>
+    collection: naturalness_cities(f.object),
+    selected: naturalness_city_id(f.object) %>
 <% end %>
 
 <%= box I18n.t 'info_box.member.member_data', 'span2' do %>
