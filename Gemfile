@@ -44,7 +44,7 @@ group :development, :test do
 end
 
 # correios
-gem "correios-cep", "0.6.7"
+gem "correios-cep", "0.8.0"
 
 group :development do
   gem "spring", "2.0.2"
