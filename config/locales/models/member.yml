@@ -31,3 +31,7 @@ pt-BR:
     member:
       member_data: 'Dados do Membro'
       naturalness: 'Naturalidade'
+
+  include_blank:
+    attributes:
+      naturalness_country_id: "Selecione o país de nascimento"

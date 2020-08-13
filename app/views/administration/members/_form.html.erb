@@ -14,7 +14,8 @@
 <%= box I18n.t 'info_box.member.naturalness', 'span2' do %>
   <%= f.input :naturalness_country_id,
     collection: Country.all,
-    selected: naturalness_country_id(f.object) %>
+    selected: naturalness_country_id(f.object),
+    include_blank: I18n.t("include_blank.attributes.naturalness_country_id") %>
 
   <%= f.input :naturalness_state_id,
     collection: naturalness_states(f.object),
@@ -37,3 +38,19 @@
 <%= box I18n.t 'activerecord.models.phone.other', 'span2' do %>
   <%= render 'shared/phones', f: f %>
 <% end %>
+
+<script type="text/javascript">
+  $('#member_naturalness_country_id').change(function() {
+    $.get('/administration/countries/'+ $(this).val() +'/states.js', {
+      select_id: "member_naturalness_state_id"
+    }, null, 'script')
+  });
+
+  $('#member_naturalness_state_id').change(function() {
+    const countryId = $('#member_naturalness_country_id').val();
+    const stateId = $(this).val();
+    $.get('/administration/countries/'+ countryId +'/states/' + stateId + '/cities', {
+      select_id: "member_naturalness_id"
+    }, null, 'script')
+  });
+</script>
