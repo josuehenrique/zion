@@ -9,9 +9,7 @@ services:
     ports:
       - "5434:5432"
     mem_limit: 512mb
-    networks:
-      zion:
-        ipv4_address: 172.29.5.1
+    network_mode: host
 
   zion_app:
     build:
@@ -28,18 +26,7 @@ services:
     depends_on:
       - zion_postgres
     mem_limit: 512mb
-    networks:
-      zion:
-        ipv4_address: 172.29.5.2
- 
+    network_mode: host
+
 volumes:
   postgres:
-
-networks:
-  zion:
-    driver: bridge
-    ipam:
-      config:
-        -
-          subnet: 172.29.0.0/16
-          gateway: 172.29.5.254
