@@ -29,7 +29,12 @@ class CrudController < ApplicationController
   end
 
   def update
-    update! { resource_path }
+    update! do |success, failure|
+    success.html { redirect_to resource_path(search: params[:search]) }
+    failure.html {
+      redirect_to collection_path(search: params[:search]), alert: resource.errors.full_messages
+    }
+    end
   end
 
   def destroy
