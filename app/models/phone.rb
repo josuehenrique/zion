@@ -26,7 +26,7 @@ class Phone < ActiveRecord::Base
 
   belongs_to :related, polymorphic: true
 
-  has_enumeration_for :phone_type, with: PhoneType, reject_if: lambda { |a| a.number.blank? }
+  has_enumeration_for :phone_type, with: PhoneType
 
   validates :number, presence: true
 
