@@ -32,8 +32,8 @@ class CrudController < ApplicationController
     update! do |success, failure|
     success.html { redirect_to resource_path(search: params[:search]) }
     failure.html {
-      flash[:alert] << resource.errors.full_messages
-      render :new
+      flash[:alert] = resource.errors.full_messages
+      render :edit
     }
     end
   end
