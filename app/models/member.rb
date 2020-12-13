@@ -59,7 +59,9 @@ class Member < ActiveRecord::Base
   has_one :phone, as: :related, dependent: :destroy
 
   accepts_nested_attributes_for :address, allow_destroy: true
-  accepts_nested_attributes_for :phone, allow_destroy: true
+
+  accepts_nested_attributes_for :phone,
+    allow_destroy: true, reject_if: lambda { |a| a.number.blank? }
 
   has_attached_file :photo,
     url: "/anexos/:class/:attachment/:id/:style_:basename.:extension",
