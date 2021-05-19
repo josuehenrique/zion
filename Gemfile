@@ -22,7 +22,7 @@ gem "faker", "1.9.1"
 gem "pg", "0.20.0"
 
 # server
-gem "puma", "3.12.0"
+gem "puma", "4.3.8"
 
 group :assets do
   gem "uglifier", "4.1.19"
