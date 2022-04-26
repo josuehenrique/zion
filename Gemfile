@@ -50,7 +50,7 @@ group :development do
   gem "spring", "2.0.2"
   gem "spring-watcher-listen", "2.0.1"
   gem "bullet", "5.7.6"
-  gem "better_errors", "2.5.0"
+  gem "better_errors", "2.8.0"
   gem "binding_of_caller", "0.8.0"
 end
 
