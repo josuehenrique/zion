@@ -5,22 +5,9 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
 
 --
 -- Name: only_last_four_password_histories(); Type: FUNCTION; Schema: public; Owner: -
@@ -70,6 +57,7 @@ CREATE TABLE public.addresses (
 --
 
 CREATE SEQUENCE public.addresses_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -115,6 +103,7 @@ CREATE TABLE public.churches (
 --
 
 CREATE SEQUENCE public.churches_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -148,6 +137,7 @@ CREATE TABLE public.cities (
 --
 
 CREATE SEQUENCE public.cities_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -184,6 +174,7 @@ CREATE TABLE public.congregateds (
 --
 
 CREATE SEQUENCE public.congregateds_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -217,6 +208,7 @@ CREATE TABLE public.countries (
 --
 
 CREATE SEQUENCE public.countries_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -229,6 +221,40 @@ CREATE SEQUENCE public.countries_id_seq
 --
 
 ALTER SEQUENCE public.countries_id_seq OWNED BY public.countries.id;
+
+
+--
+-- Name: inventories; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.inventories (
+    id bigint NOT NULL,
+    name character varying NOT NULL,
+    description text NOT NULL,
+    observations text,
+    active boolean DEFAULT true NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: inventories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.inventories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: inventories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.inventories_id_seq OWNED BY public.inventories.id;
 
 
 --
@@ -249,6 +275,7 @@ CREATE TABLE public.jobs (
 --
 
 CREATE SEQUENCE public.jobs_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -296,6 +323,7 @@ CREATE TABLE public.members (
 --
 
 CREATE SEQUENCE public.members_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -330,6 +358,7 @@ CREATE TABLE public.permits (
 --
 
 CREATE SEQUENCE public.permits_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -361,6 +390,7 @@ CREATE TABLE public.phone_carriers (
 --
 
 CREATE SEQUENCE public.phone_carriers_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -397,6 +427,7 @@ CREATE TABLE public.phones (
 --
 
 CREATE SEQUENCE public.phones_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -430,6 +461,7 @@ CREATE TABLE public.posts (
 --
 
 CREATE SEQUENCE public.posts_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -463,6 +495,7 @@ CREATE TABLE public.roles (
 --
 
 CREATE SEQUENCE public.roles_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -506,6 +539,7 @@ CREATE TABLE public.shepherds (
 --
 
 CREATE SEQUENCE public.shepherds_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -540,6 +574,7 @@ CREATE TABLE public.states (
 --
 
 CREATE SEQUENCE public.states_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -572,6 +607,7 @@ CREATE TABLE public.user_password_histories (
 --
 
 CREATE SEQUENCE public.user_password_histories_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -604,6 +640,7 @@ CREATE TABLE public.user_permits (
 --
 
 CREATE SEQUENCE public.user_permits_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -662,6 +699,7 @@ CREATE TABLE public.users (
 --
 
 CREATE SEQUENCE public.users_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -709,6 +747,13 @@ ALTER TABLE ONLY public.congregateds ALTER COLUMN id SET DEFAULT nextval('public
 --
 
 ALTER TABLE ONLY public.countries ALTER COLUMN id SET DEFAULT nextval('public.countries_id_seq'::regclass);
+
+
+--
+-- Name: inventories id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inventories ALTER COLUMN id SET DEFAULT nextval('public.inventories_id_seq'::regclass);
 
 
 --
@@ -841,6 +886,14 @@ ALTER TABLE ONLY public.congregateds
 
 ALTER TABLE ONLY public.countries
     ADD CONSTRAINT countries_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: inventories inventories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inventories
+    ADD CONSTRAINT inventories_pkey PRIMARY KEY (id);
 
 
 --
@@ -1274,6 +1327,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181005044559'),
 ('20181005045331'),
 ('20181005053748'),
-('20181011200543');
+('20181011200543'),
+('20200530024202');
 
 
