@@ -9,7 +9,6 @@ services:
     ports:
       - "5434:5432"
     mem_limit: 512mb
-    network_mode: host
 
   zion_app:
     build:
@@ -26,7 +25,6 @@ services:
     depends_on:
       - zion_postgres
     mem_limit: 512mb
-    network_mode: host
 
 volumes:
   postgres:
