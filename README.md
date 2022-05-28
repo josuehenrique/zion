@@ -11,9 +11,9 @@ So, with the community power this system will be the most church system ever.
 ##### Dependencies:
 * Ruby 2.5.1
 * NodeJS
-* PostgreSql >= 9.0
+* PostgreSql 11.5
 * Rails 5.1.6
-* pg_dump 9.6.9
+* pg_dump 11.5
 
 #### How to contribute
 **open an issue** -> **commit** -> **git push** -> **CI passed** -> **require code review** -> **if all ok merge**
@@ -23,7 +23,7 @@ Today we use Wercker for while.
 https://app.wercker.com/josuehenrique/zion/runs
 
 #### Link to "production" APP
-http://zion-production.herokuapp.com/users/sign_in
+http://zion.herokuapp.com/users/sign_in
 
 **Obs.:** 
 1. MERGES ON MASTER STARTS **AUTOMATICALLY** PRODUCTION DEPLOY
