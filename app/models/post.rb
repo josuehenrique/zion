@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   attr_list :name
   attr_search :name
 
-  has_enumeration_for :classification, with: PostsType
+  has_enumeration_for :classification, with: PostType
 
   validates :name, :classification, presence: true
 

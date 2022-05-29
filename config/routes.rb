@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :congregateds, except: [:delete, :destroy]
     resources :churches, except: [:delete, :destroy]
     resources :jobs, except: [:delete, :destroy]
+    resources :posts, except: [:delete, :destroy]
     resources :members, except: [:delete, :destroy]
 
     resources :countries, except: [:delete, :destroy] do

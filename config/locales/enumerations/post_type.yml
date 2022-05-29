@@ -1,0 +1,7 @@
+pt-BR:
+  enumerations:
+    post_type:
+      administration: "Administrador"
+      leadership: "Líder"
+      spiritual_leadership: "Líder espiritual"
+      spiritual_leadership_and_administration: "Lider espiritual e administrador"

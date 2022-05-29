@@ -6,7 +6,7 @@
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
     <%= devise_error_messages! %>
 
-    <%= info_box(t('general_data')) do %>
+    <%= info_box(t('crud.box.general_data')) do %>
       <%= f.input :login %>
       <%= f.input :email %>
 

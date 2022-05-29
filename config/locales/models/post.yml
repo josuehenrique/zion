@@ -7,4 +7,5 @@ pt-BR:
 
     attributes:
       post:
+        classification: 'Classificação'
         name: 'Nome'
