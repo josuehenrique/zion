@@ -59,8 +59,8 @@ user = User.new(
 user.save(validate: false)
 user.update_column(:admin, true)
 
-post = Post.create(name: 'Membro', classification: PostsType::ADMINISTRATION)
-country = Country.create('Brasil', 'BR')
+# post = Post.create(name: 'Membro', classification: PostsType::ADMINISTRATION)
+# country = Country.create('Brasil', 'BR')
 # state = City.create(nfirst)
 # city = City.create(nfirst)
 # job  = Job.create(name: 'Marceneiro')

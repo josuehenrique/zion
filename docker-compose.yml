@@ -2,7 +2,7 @@ version: "2"
 
 services:
   zion_postgres:
-    image: postgres:11.5-alpine
+    image: postgres:latest
     container_name: zion_postgres
     volumes:
       - ./docker/db:/var/lib/postgresql/data
