@@ -2,12 +2,12 @@ version: "2"
 
 services:
   zion_postgres:
-    image: postgres:latest
+    image: postgres:11.5
     container_name: zion_postgres
     volumes:
       - ./docker/db:/var/lib/postgresql/data
     ports:
-      - "5434:5432"
+      - "5432:5432"
     mem_limit: 512mb
 
   zion_app:

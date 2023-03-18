@@ -4,7 +4,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: <%= ENV.fetch('ZION_DATABASE_HOST', 'zion_postgres') %>
-  port: <%= ENV.fetch('ZION_DATABASE_PORT', '5434') %>
+  port: <%= ENV.fetch('ZION_DATABASE_PORT', '5432') %>
 
 development:
   <<: *default
