@@ -2,7 +2,7 @@ FROM ruby:2.5.1
 
 ENV APP_HOME /zion
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
 
 RUN apt-get update -y && \
     apt-get install -y \
