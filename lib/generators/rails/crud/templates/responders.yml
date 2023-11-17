@@ -1,0 +1,23 @@
+pt-BR:
+  flash:
+    male: &male
+      create:
+        notice: "%{resource_name} criado com sucesso."
+
+      update:
+        notice: "%{resource_name} editado com sucesso."
+
+      destroy:
+        notice: "%{resource_name} apagado com sucesso."
+        alert: "%{resource_name} não pode ser apagado."
+
+    female: &female
+      create:
+        notice: "%{resource_name} criada com sucesso."
+
+      update:
+        notice: "%{resource_name} editada com sucesso."
+
+      destroy:
+        notice: "%{resource_name} apagada com sucesso."
+        alert: "%{resource_name} não pode ser apagada."
