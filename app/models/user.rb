@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
 
   before_save :verify_password_history, if: :encrypted_password_changed?
   before_save :downcase_and_remove_secret_phrase_accents, if: :secret_phrase_changed?
-  after_save :save_changed_password_on_history, if: :encrypted_password_changed?
+  after_save :save_changed_password_on_history, if: "will_save_change_to_attribute?(:encrypted_password)"
 
   orderize :name
   filterize
