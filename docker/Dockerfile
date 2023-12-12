@@ -2,7 +2,10 @@ FROM ruby:2.5.1
 
 ENV APP_HOME /zion
 
+RUN apt update && apt install lsb-release -y
 RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdb.list && \
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 
 RUN apt-get update -y && \
     apt-get install -y \
@@ -15,9 +18,8 @@ RUN apt-get update -y && \
     cmake \
     nodejs \
     vim \
-    git
-
-RUN apt update -y && apt install postgresql-client -y
+    git \
+    postgresql-client-12
 
 # ADD PHANTOMJS
 COPY spec/bin/phantomjs-2.1.1-linux-x86_64.tar.bz2 /usr/local/share/
