@@ -2,7 +2,7 @@ version: "2"
 
 services:
   zion_postgres:
-    image: postgres:12.16
+    image: postgres:11.22
     container_name: zion_postgres
     volumes:
       - zion-data:/var/lib/postgresql/data

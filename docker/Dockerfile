@@ -2,11 +2,17 @@ FROM ruby:2.5.5-buster
 LABEL maintainer="Josué Henrique Ferreira da Silva"
 
 ENV APP_HOME /zion
+ENV BUNDLE_PATH /gems
+ENV PATH $BUNDLE_PATH/bin:$GEM_HOME/gems/bin:./node_modules/.bin:$PATH
 
-RUN apt update && apt install lsb-release -y
-RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdb.list && \
-    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+# Persist bash history between sessions
+RUN mkdir /commandhistory
+RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
+  && echo $SNIPPET >> "/root/.bashrc"
+
+# add pg repository
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt buster-pgdg main" > /etc/apt/sources.list.d/pgdb.list && \
+    curl -k https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 
 RUN apt-get update -y && \
     apt-get install -y \
@@ -20,7 +26,7 @@ RUN apt-get update -y && \
     nodejs \
     vim \
     git \
-    postgresql-client-12
+    postgresql-client-11
 
 # ADD PHANTOMJS
 COPY spec/bin/phantomjs-2.1.1-linux-x86_64.tar.bz2 /usr/local/share/
