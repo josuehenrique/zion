@@ -5,7 +5,7 @@ services:
     image: postgres:12.16
     container_name: zion_postgres
     volumes:
-      - ./docker/db:/var/lib/postgresql/data
+      - zion-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     mem_limit: 512mb
@@ -20,6 +20,8 @@ services:
     tty: true
     volumes:
       - .:/zion
+      - zion-gems:/gems
+      - bashhistory:/commandhistory
     ports:
       - "3000:3000"
     depends_on:
@@ -28,3 +30,6 @@ services:
 
 volumes:
   postgres:
+  zion-gems:
+  zion-data:
+  bashhistory:
