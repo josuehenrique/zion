@@ -44,5 +44,7 @@ WORKDIR $APP_HOME
 
 COPY Gemfile* .
 
+RUN sudo chmod 777 Gemfile*
+
 RUN gem install bundler -v 2.3.26 \
     && bundle install --jobs 3

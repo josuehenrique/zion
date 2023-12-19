@@ -1,7 +1,7 @@
 #!/bin/bash
 PORT=${PORT:-"3000"}
 
-if [ "$LOAD_SCHEMA" = "yes" ]; then
+if [ "$LOAD_SCHEMA" = "true" ]; then
     echo "Will load DB schema"
     bundle exec rake db:create db:schema:load db:migrate
 else
