@@ -16,7 +16,7 @@ services:
       dockerfile: docker/Dockerfile
     image: zion
     container_name: zion
-    command: /bin/bash
+    command: ./script/docker-entrypoint.sh
     tty: true
     volumes:
       - .:/zion
