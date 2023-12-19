@@ -1,4 +1,5 @@
-FROM ruby:2.5.1
+FROM ruby:2.5.5-buster
+LABEL maintainer="Josué Henrique Ferreira da Silva"
 
 ENV APP_HOME /zion
 

@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.5.1"
+ruby "2.5.5"
 
 gem "rails", "5.1.6"
 gem "inherited_resources", "1.11.0"
