@@ -9,4 +9,4 @@ else
     bundle exec rake db:migrate #Should always run in production
 fi
 
-exec bundle exec puma -p $PORT -C /zion/config/puma.rb
+bundle exec puma -p $PORT -C /zion/config/puma.rb
