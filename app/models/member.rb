@@ -22,6 +22,12 @@
 #  photo_file_size    :bigint(8)
 #  photo_updated_at   :datetime
 #  email              :string
+#  chieldren          :integer
+#  child              :integer
+#  sons               :integer
+#  instruments        :string
+#  phone_main         :string(15)
+#  phone_other        :string(15)
 #
 # Indexes
 #
@@ -68,7 +74,7 @@ class Member < ActiveRecord::Base
     path: ":rails_root/public/anexos/:class/:attachment/:id/:style_:basename.:extension"
 
   validates :name, :father_name, :mother_name, :post_id, :naturalness_id, :job_id,
-    :convert_dt, :birth_dt, :gender, :educational_level, :marital_status, presence: true
+    :convert_dt, :birth_dt, :gender, :educational_level, :marital_status, :phone_main, presence: true
 
   validates :name, uniqueness: true
 

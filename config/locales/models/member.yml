@@ -26,7 +26,8 @@ pt-BR:
         photo: 'Foto'
         naturalness_country_id: 'País'
         naturalness_state_id: 'Estado'
-
+        phone_main: 'Telefone principal'
+        phone_other: 'Telefone alternativo'
   info_box:
     member:
       member_data: 'Dados do Membro'
