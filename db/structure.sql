@@ -165,7 +165,9 @@ CREATE TABLE public.congregateds (
     active boolean DEFAULT true,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    email character varying
+    email character varying,
+    phone_main character varying(15),
+    phone_other character varying(15)
 );
 
 
@@ -1440,6 +1442,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20231220021056'),
 ('20231220023542'),
 ('20240113180506'),
-('20240113183326');
+('20240113183326'),
+('20240113193144'),
+('20240113193253');
 
 
