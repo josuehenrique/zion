@@ -81,7 +81,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.10)
     correios-cep (0.8.0)
       http (~> 4.3)
       ox (~> 2.13)
@@ -114,8 +114,8 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    globalid (0.4.1)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
@@ -129,7 +129,7 @@ GEM
     http-form_data (2.3.0)
     http-parser (1.2.1)
       ffi-compiler (>= 1.0, < 2.0)
-    i18n (1.1.1)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     i18n_alchemy (0.3.1)
       activesupport (>= 4.0.0, < 6.1)
@@ -164,7 +164,7 @@ GEM
       rake
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
-    minitest (5.11.3)
+    minitest (5.15.0)
     multi_json (1.13.1)
     nio4r (2.3.1)
     nokogiri (1.8.5)
@@ -272,7 +272,7 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
