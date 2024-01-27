@@ -317,8 +317,6 @@ CREATE TABLE public.members (
     photo_file_size bigint,
     photo_updated_at timestamp without time zone,
     email character varying,
-    phone_main character varying(15),
-    phone_other character varying(15)
 );
 
 
