@@ -35,6 +35,10 @@
   <%= render 'shared/address', f: f %>
 <% end %>
 
+<%= box I18n.t 'activerecord.models.phone.other', 'span2' do %>
+  <%= render 'shared/phones', f: f %>
+<% end %>
+
 <script type="text/javascript">
   $('#member_naturalness_country_id').change(function() {
     $.get('/administration/countries/'+ $(this).val() +'/states.js', {
