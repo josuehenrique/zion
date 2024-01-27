@@ -317,6 +317,8 @@ CREATE TABLE public.members (
     photo_file_size bigint,
     photo_updated_at timestamp without time zone,
     email character varying,
+    phone_main character varying(15),
+    phone_other character varying(15)
 );
 
 
@@ -1332,6 +1334,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181011200543'),
 ('20200530024202'),
 ('20240113193144'),
-('20240113193253');
+('20240113193253'),
+('20240113180506'),
+('20240113183326');
 
 
