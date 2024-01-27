@@ -9,6 +9,8 @@
   <%= f.input :gender %>
   <%= f.input :educational_level %>
   <%= f.input :marital_status , include_blank: false  %>
+  <%= f.input :phone_main %>
+  <%= f.input :phone_other %>
 <% end %>
 
 <%= box I18n.t 'info_box.member.naturalness', 'span2' do %>
@@ -20,7 +22,7 @@
   <%= f.input :naturalness_state_id,
     collection: naturalness_states(f.object),
     selected: naturalness_state_id(f.object) %>
-    
+
   <%= f.input :naturalness,
     collection: naturalness_cities(f.object),
     selected: naturalness_city_id(f.object) %>
@@ -33,10 +35,6 @@
 
 <%= box I18n.t 'activerecord.models.address.one', 'span2' do %>
   <%= render 'shared/address', f: f %>
-<% end %>
-
-<%= box I18n.t 'activerecord.models.phone.other', 'span2' do %>
-  <%= render 'shared/phones', f: f %>
 <% end %>
 
 <script type="text/javascript">
