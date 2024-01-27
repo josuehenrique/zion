@@ -224,40 +224,6 @@ ALTER SEQUENCE public.countries_id_seq OWNED BY public.countries.id;
 
 
 --
--- Name: instruments; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.instruments (
-    id bigint NOT NULL,
-    name character varying,
-    title character varying,
-    content text,
-    active boolean,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: instruments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.instruments_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: instruments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.instruments_id_seq OWNED BY public.instruments.id;
-
-
---
 -- Name: inventories; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -349,10 +315,6 @@ CREATE TABLE public.members (
     photo_file_size bigint,
     photo_updated_at timestamp without time zone,
     email character varying,
-    chieldren integer,
-    child integer,
-    sons integer,
-    instruments character varying,
     phone_main character varying(15),
     phone_other character varying(15)
 );
@@ -595,40 +557,6 @@ ALTER SEQUENCE public.shepherds_id_seq OWNED BY public.shepherds.id;
 
 
 --
--- Name: songs; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.songs (
-    id bigint NOT NULL,
-    name character varying,
-    title character varying,
-    content text,
-    active boolean,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: songs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.songs_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: songs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.songs_id_seq OWNED BY public.songs.id;
-
-
---
 -- Name: states; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -824,13 +752,6 @@ ALTER TABLE ONLY public.countries ALTER COLUMN id SET DEFAULT nextval('public.co
 
 
 --
--- Name: instruments id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.instruments ALTER COLUMN id SET DEFAULT nextval('public.instruments_id_seq'::regclass);
-
-
---
 -- Name: inventories id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -891,13 +812,6 @@ ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_
 --
 
 ALTER TABLE ONLY public.shepherds ALTER COLUMN id SET DEFAULT nextval('public.shepherds_id_seq'::regclass);
-
-
---
--- Name: songs id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.songs ALTER COLUMN id SET DEFAULT nextval('public.songs_id_seq'::regclass);
 
 
 --
@@ -974,14 +888,6 @@ ALTER TABLE ONLY public.congregateds
 
 ALTER TABLE ONLY public.countries
     ADD CONSTRAINT countries_pkey PRIMARY KEY (id);
-
-
---
--- Name: instruments instruments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.instruments
-    ADD CONSTRAINT instruments_pkey PRIMARY KEY (id);
 
 
 --
@@ -1062,14 +968,6 @@ ALTER TABLE ONLY public.schema_migrations
 
 ALTER TABLE ONLY public.shepherds
     ADD CONSTRAINT shepherds_pkey PRIMARY KEY (id);
-
-
---
--- Name: songs songs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.songs
-    ADD CONSTRAINT songs_pkey PRIMARY KEY (id);
 
 
 --
@@ -1433,12 +1331,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181005053748'),
 ('20181011200543'),
 ('20200530024202'),
-('20231122001101'),
-('20231219233811'),
-('20231219234413'),
-('20231220014635'),
-('20231220021056'),
-('20231220023542'),
 ('20240113180506'),
 ('20240113183326');
 
