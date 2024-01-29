@@ -21,7 +21,7 @@ services:
     command: ./script/docker-entrypoint.sh
     tty: true
     environment:
-      LOAD_SCHEMA: false # it should be true when you first setup the app
+      LOAD_SCHEMA: true # it should be true when you first setup the app
     volumes:
       - .:/zion
       - zion-gems:/gems
