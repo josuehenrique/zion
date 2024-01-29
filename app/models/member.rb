@@ -22,6 +22,10 @@
 #  photo_file_size    :bigint(8)
 #  photo_updated_at   :datetime
 #  email              :string
+#  chieldren          :integer
+#  child              :integer
+#  sons               :integer
+#  instruments        :string
 #  phone_main         :string(15)
 #  phone_other        :string(15)
 #

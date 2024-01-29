@@ -2,15 +2,17 @@
 #
 # Table name: congregateds
 #
-#  id         :integer          not null, primary key
-#  name       :string(150)      not null
-#  birth_dt   :date             not null
-#  entry_dt   :date             not null
-#  baptized   :boolean          default(FALSE)
-#  active     :boolean          default(TRUE)
-#  created_at :datetime
-#  updated_at :datetime
-#  email      :string
+#  id          :integer          not null, primary key
+#  name        :string(150)      not null
+#  birth_dt    :date             not null
+#  entry_dt    :date             not null
+#  baptized    :boolean          default(FALSE)
+#  active      :boolean          default(TRUE)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  email       :string
+#  phone_main  :string(15)
+#  phone_other :string(15)
 #
 
 class Congregated < ActiveRecord::Base
@@ -27,7 +29,7 @@ class Congregated < ActiveRecord::Base
   accepts_nested_attributes_for :address, update_only: true
   accepts_nested_attributes_for :phone, update_only: true
 
-  validates :name, :birth_dt, :entry_dt, presence: true
+  validates :name, :birth_dt, :entry_dt, :phone_main, presence: true
 
   orderize
   filterize

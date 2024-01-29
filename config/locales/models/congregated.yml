@@ -13,3 +13,5 @@ pt-BR:
         birth_dt: 'Data de Nascimento'
         entry_dt: 'Data de Entrada na Igreja'
         name: 'Nome'
+        phone_main: 'Telefone Principal'
+        phone_other: 'Telefone Alternativo'
