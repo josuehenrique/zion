@@ -29,7 +29,7 @@ class Congregated < ActiveRecord::Base
   accepts_nested_attributes_for :address, update_only: true
   accepts_nested_attributes_for :phone, update_only: true
 
-  validates :name, :birth_dt, :entry_dt, presence: true
+  validates :name, :birth_dt, :entry_dt, :phone_main, presence: true
 
   orderize
   filterize
